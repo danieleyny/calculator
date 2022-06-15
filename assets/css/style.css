@@ -4,15 +4,60 @@
     box-sizing: border-box;
 }
 
+
+/* tables */
+.table { 
+  width: 100%;
+  margin: 15px 0; 
+}
+.table__header { 
+  font-weight: lighter;
+  padding: 10px 20px 12px 12px;
+  font-size: 15px;
+  text-align: center; 
+  color: white;
+  border: 1px solid #000; 
+  background-color: #38486d; 
+}
+.table__cell { 
+  font-weight: normal;
+  padding: 10px; 
+  text-align: center; 
+  border: 1px solid #000; 
+  background-color: #fff; 
+}
+.table__dollar::before{
+  content: "$";
+
+}
+
+
+
+/* Nav Bar */
+
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 8vh;
-	background-color: #3e4646;
+    min-height: 9.5vh;
+	background-color: #38486d;
 	    
 }
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
 .logo {
+    color: rgb(228, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+	height: 10px;
+}
+.logo-title {
     color: rgb(228, 226, 226);
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -20,9 +65,9 @@ nav {
 }
 
 .logo img {
-	height: 100px;
-	width: 100px;
-	margin-top: -45px;
+	height: 110px;
+	width: 110px;
+	margin-top: -47px;
 }
 
 .nav-links {
@@ -69,8 +114,8 @@ nav {
         position: absolute;
         right: 0px;
         height: 92vh;
-        top: 8vh;
-        background-color: #3e4646;
+        top: 9.5vh;
+        background-color: #38486d;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -112,3 +157,153 @@ nav {
 }
 
 
+/* Nav Bar End */
+
+
+
+/* Cap Rate */
+.loan-calculator {
+	font-family: "Roboto", sans-serif;
+	width: 600px;
+	margin: 24px auto;
+	background: #fff;
+	box-shadow: 0 12px 50px -11px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	color: #14213d;
+	overflow: hidden;
+  }
+  
+  .loan-calculator,
+  .loan-calculator * {
+	box-sizing: border-box;
+  }
+  
+  .loan-calculator .top {
+	background: #14213d;
+	color: #fff;
+	padding: 32px;
+  }
+  
+  .loan-calculator .top h2 {
+	margin-top: 0;
+  }
+  
+  .loan-calculator form {
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+  }
+  
+  .loan-calculator .title {
+	margin-bottom: 16px;
+  
+  }
+  
+  .loan-calculator form input {
+	font-size: 20px;
+	padding: 8px 24px;
+	width: 100%;
+  }
+  
+  .loan-calculator .result {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .loan-calculator .result .left {
+	width: 100%;
+	padding: 8px 32px;
+  }
+  
+  .loan-calculator .left h3 {
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 8px;
+  }
+  
+  .loan-calculator .result .value {
+	font-size: 30px;
+	font-weight: 900;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(20, 33, 61, 0.2);
+  }
+  
+  .loan-calculator .result .value::before {
+	content: "$";
+	font-size: 24px;
+	font-weight: 400;
+	margin-right: 6px;
+	opacity: 0.4;
+  }
+  
+  .loan-calculator .calculate-btn {
+	background: #e63946;
+	color: #fff;
+	border: none;
+	padding: 8px 32px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: 900;
+	cursor: pointer;
+	margin: 24px 0;
+  }
+
+
+  .loan-calculator .calculate-btn-mortgage {
+	background: #676565;
+	color: #fff;
+	border: none;
+	padding: 10px 32px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: 900;
+	cursor: pointer;
+	margin: 50px 0;
+  }
+
+  .loan-calculator .calculate-btn-mortgage:hover {
+	background: #14213d;
+  transition: .5s;
+	color: #fff;
+	border: none;
+	padding: 10px 32px;
+	border-radius: 8px;
+	font-size: 18px;
+	font-weight: 900;
+	cursor: pointer;
+	margin: 50px 0;
+  }
+  
+.form__error{
+  color: rgb(179, 9, 9);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+  .loan-calculator .right {
+	width: 50%;
+  }
+  
+  @media (max-width: 650px) {
+	.loan-calculator {
+	  width: 90%;
+	  max-width: 500px;
+	}
+  
+	.loan-calculator form {
+	  flex-direction: column;
+	  gap: 20px;
+	}
+  
+	.loan-calculator .result {
+	  flex-direction: column;
+	  text-align: center;
+	}
+  }
+  
+/* Cap Rate End */

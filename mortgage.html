@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/nophel_logo.png" type="image/x-icon">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <script src="https://kit.fontawesome.com/0043dc8ce8.js" crossorigin="anonymous"></script>
+
+        <title>Monthly Mortgage Calculator</title>
+    
+        
+
+        <script type="text/javascript">
+			// Monthly Mortgage Payment Calculator
+            var results;
+			
+			function clearResults() {
+				$(".form__error").html("");
+				$('.results').html("");
+			};
+		
+			$(function(){
+				$('body').on('submit','form',{},function(e){
+					e.preventDefault();	
+					// clear previous results
+					clearResults();
+					// get our inputs
+					var rawInputs = $(this).serializeArray();
+					// convert these to numbers and create our argument array
+					var args = {};
+					for(var i = 0; i < rawInputs.length; i++) {
+						args[rawInputs[i].name] = parseFloat(rawInputs[i].value);
+					}
+					// run the mortgage calculator
+					results = mortgageCalculators.monthlyMortgagePayments(args);
+					if(results.error) {
+						$(".form__error").html(results.error);
+					} else {
+						$('.results').html(results)
+					}
+				});
+			});
+			// Monthly Mortgage Payment Calculator End
+
+
+
+
+			// 15 Year vs 30 Year Mortgage Calculator 
+
+            var results15vs30;
+		
+			function clearResults() {
+				$(".form__error1").html("");
+				$('.table-1__tbody, .table-2__tbody').html("");
+			};
+		
+			$(function(){
+				$('body').on('submit','form',{},function(e){
+					e.preventDefault();	
+					// clear previous results
+					clearResults();
+					// get our inputs
+					var rawInputs = $(this).serializeArray();
+					// convert these to numbers and create our argument array
+					var args = {};
+					for(var i = 0; i < rawInputs.length; i++) {
+						args[rawInputs[i].name] = parseFloat(rawInputs[i].value);
+					}
+					// run the mortgage calculator
+					results15vs30 = mortgageCalculators.compareFifteenVsThirtyYearMortgages(args);
+					if(results15vs30.error) {
+						$(".form__error").html(results15vs30.error);
+					} else {
+						$('.table-1__tbody').html('<tr><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.totalInterest+'</td><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.totalPayments+'</td></tr>');
+						$('.table-2__tbody').html('<tr><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.totalInterest+'</td><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.totalPayments+'</td></tr>');
+					}
+				});
+			});
+            
+			// 15 Year vs 30 Year Mortgage Calculator End
+            
+
+			// Fixed rate vs ARM rate Mortgage Calculator  
+            var resultsARM;
+			
+			function clearResults() {
+				$(".form__error").html("");
+				$('.table-1__tbody, .table-2__tbody').html("");
+			};
+		
+			$(function(){
+				$('body').on('submit','form',{},function(e){
+					e.preventDefault();	
+					// clear previous results
+					clearResults();
+					// get our inputs
+					var rawInputs = $(this).serializeArray();
+					// convert these to numbers and create our argument array
+					var args = {};
+					for(var i = 0; i < rawInputs.length; i++) {
+						args[rawInputs[i].name] = parseFloat(rawInputs[i].value);
+					}
+					// run the mortgage calculator
+					results = mortgageCalculators.comparefixedRateVsARM(args);
+					if(results.error) {
+						$(".form__error").html(results.error);
+					} else {
+						$('.table-1__tbody').html('<tr><td class="table__cell">'+results.fixedRate.monthlyMortgagePayment+'</td></tr>');
+						$('.table-2__tbody').html('<tr><td class="table__cell">'+results.ARM.initialMonthlyMortgagePayment+'</td><td class="table__cell">'+results.ARM.maxMonthlyMortgagePayment+'</td></tr>');
+					}
+				});
+			});
+			// Fixed rate vs ARM rate Mortgage Calculator End 
+
+
+
+
+		</script>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+        <nav>
+    
+            <div class="logo">
+                <img src="./assets/img/logowhite.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Calculators</a></li>
+                <li><a href="#">Cap Rate</a></li>
+                <li><a href="#">Cash Flow</a></li>
+        
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+        <!-- Header End -->
+
+      <br /><br/><br /><br/><br /><br />
+      
+
+
+
+            <div class="loan-calculator">
+                <div class="top">
+                    <h2>Monthly Mortgage Payment Calculator</h2>
+                    <br /><br/>
+                <form action="#">
+			<div class="group">
+				<div class="title">Loan Amount</div>
+				<input type="text" placeholder="0" name="loanAmount" id="loanAmount" >
+			</div>
+			<div class="group">
+				<div class="title" >Interest Rate</div>
+				<input type="text" placeholder="0" name="interestRate" id="interestRate">
+			</div>
+            <div class="group">
+				<div class="title">Term (Years)</div>
+				<input type="text" placeholder="0" name="termInYears" id="termInYears">
+			</div>
+            </div>
+
+
+            <div class="result">
+                <div class="left">
+                    <br /><br />
+                    <h3>Monthly mortgage payment of</h3>
+                    <div class="results value"></div>
+
+
+
+
+				<button class="calculate-btn-mortgage" type="submit">Calculate </button>
+                <br />
+                <br />
+            </div>
+            </div>
+        </form>
+</div>
+
+
+<br /><br />
+
+
+
+<div class="loan-calculator">
+    <div class="top">
+        <h2>15 vs 30 Year Mortgage Calculator</h2>
+        <br /><br/>
+<form class="form">
+    <div class="group">
+        <div class="title" >Loan Amount</div>
+        <input type="text" placeholder="0" name="loanAmount" id="loanAmount" >
+    </div>
+    <div class="group">
+        <div class="title" >Interest Rate (15 year)</div>
+        <input type="text" placeholder="0" name="interestRate1" id="interestRate1">
+    </div>
+    <div class="group">
+        <div class="title" >Interest Rate (30 year)</div>
+        <input type="text" placeholder="0" name="interestRate2" id="interestRate2">
+    </div>
+    </div>
+   
+
+<br /><br /><br />
+<div class="result">
+    <div class="left">
+<div class="results15vs30">
+    <h2 class="headline headline--results">15 Year Mortgage</h2>
+    <table class="table table-1">
+        <thead>
+            <tr>
+                <th class="table__header">Monthly Mortgage Payment</th>
+                <th class="table__header">Interest Payments</th>
+                <th class="table__header">Total Payments</th>
+            </tr>
+        </thead>
+        <tbody class="table-1__tbody"></tbody>
+    </table>
+    <br /><br/>
+    <h2 class="headline headline--results">30 Year Mortgage</h2>
+    <table class="table table-2">
+        <thead>
+            <tr>
+                <th class="table__header">Monthly Mortgage Payment</th>
+                <th class="table__header">Interest Payments</th>
+                <th class="table__header">Total Payments</th>
+            </tr>
+        </thead>
+        <tbody class="table-2__tbody"></tbody>
+    </table>
+    <button class="calculate-btn-mortgage" type="submit8">Calculate </button>
+
+</form>
+
+        </div>
+        </div>
+</div>
+</div>
+
+
+
+
+<div class="loan-calculator">
+<div class="top">
+<h2>Fixed Rate vs ARM Rate Mortgage Calculator</h2>
+
+
+<form class="form">
+    <div class="group">
+        <label class="title" >Loan Amount</label>
+        <input type="text"  name="loanAmount" id="loanAmount" >
+    </div>
+    <div class="group">
+        <label class="title" >Interest Rate</label>
+        <input type="text"  name="interestRate" id="interestRate">
+    </div>
+    <div class="group">
+        <label class="title" >Term in Years</label>
+        <input type="text"  name="termInYears" id="termInYears">
+    </div>
+    <div class="group">
+        <label class="title" > Months Before First Adjustment </label>
+        <input type="text"  name="monthsBeforeFirstAdjustment" id="monthsBeforeFirstAdjustment">
+    </div>
+    <div class="group">
+        <label class="title" > Months Between Adjustments </label>
+        <input type="text"  name="monthsBetweenAdjustments" id="monthsBetweenAdjustments">
+    </div>
+    <div class="group">
+        <label class="title" >Expected Adjustment Rate</label>
+        <input type="text"  name="expectedAdjustmentRate" id="expectedAdjustmentRate">
+    </div>
+    <div class="group">
+        <label class="title" >Initial Interest Rate</label>
+        <input type="text"  name="initialInterestRate" id="initialInterestRate">
+    </div>
+    <div class="group">
+        <label class="title" >Maximum Interest Rate</label>
+        <input type="text"  name="maximumInterestRate" id="maximumInterestRate">
+    </div>
+</div>
+    <div class="form__buttons">
+        <button class="btn" type="submit">Calculate</button>
+        <p class="form__error"></p>
+    </div>
+</form>
+<div class="resultsARM">
+    <h2 class="headline headline--results">Fixed Rate Mortgage</h2>
+    <table class="table table-1">
+        <thead>
+            <tr>
+                <th class="table__header">Monthly Mortgage Payment</th>
+            </tr>
+        </thead>
+        <tbody class="table-1__tbody"></tbody>
+    </table>
+    <h2 class="headline headline--results">Adjustable Rate Mortgage</h2>
+    <table class="table table-2">
+        <thead>
+            <tr>
+                <th class="table__header">Initial Monthly Mortgage Payment</th>
+                <th class="table__header">Max Monthly Mortgage Payment</th>
+            </tr>
+        </thead>
+        <tbody class="table-2__tbody"></tbody>
+    </table>
+    <p class="savings"></p>
+</div>
+</div>
+        
+        
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/mortgage-calculators.js"></script>
+    </body>
+</html>
