@@ -28,6 +28,7 @@
 }
 .table__dollar::before{
   content: "$";
+  
 
 }
 
@@ -182,6 +183,8 @@ nav {
 	color: #14213d;
 	overflow: hidden;
   }
+
+ 
   
   .loan-calculator,
   .loan-calculator * {
@@ -220,6 +223,7 @@ nav {
 	gap: 8px;
 	justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-evenly
   }
   
   .loan-calculator .title {

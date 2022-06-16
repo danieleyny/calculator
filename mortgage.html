@@ -7,6 +7,10 @@
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="./assets/css/style.css">
 
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+
+
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
 
@@ -120,12 +124,47 @@
 					if(resultsARM.error) {
 						$(".form__error").html(resultsARM.error);
 					} else {
-						$('.table-1__tbody-ARM').html('<tr><td class="table__cell">'+resultsARM.fixedRate.monthlyMortgagePaymentARM+'</td></tr>');
-						$('.table-2__tbody-ARM').html('<tr><td class="table__cell">'+resultsARM.ARM.initialMonthlyMortgagePayment+'</td><td class="table__cell">'+resultsARM.ARM.maxMonthlyMortgagePayment+'</td></tr>');
+						$('.table-1__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+resultsARM.fixedRate.monthlyMortgagePaymentARM+'</td></tr>');
+						$('.table-2__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+resultsARM.ARM.initialMonthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+resultsARM.ARM.maxMonthlyMortgagePayment+'</td></tr>');
 					}
 				});
 			});
-			// Fixed rate vs ARM rate Mortgage Calculator End 
+			// Fixed rate vs ARM rate Mortgage Calculator End
+            
+            
+			// Refinance Calculator
+            var resultsReFi;
+			
+			function clearResults() {
+				$(".form__error").html("");
+				$('.table-1__tbody-ReFi, .table-2__tbody-ReFi, .savings').html("");
+			};
+		
+			$(function(){
+				$('body').on('submit','form',{},function(e){
+					e.preventDefault();	
+					// clear previous results
+					clearResults();
+					// get our inputs
+					var rawInputs = $(this).serializeArray();
+					// convert these to numbers and create our argument array
+					var args = {};
+					for(var i = 0; i < rawInputs.length; i++) {
+						args[rawInputs[i].name] = parseFloat(rawInputs[i].value);
+					}
+					// run the mortgage calculator
+					results = mortgageCalculators.refinanceMortgage(args);
+					if(results.error) {
+						$(".form__error").html(results.error);
+					} else {
+						$('.table-1__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+results.oldMonthlyMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results.oldMonthlyMortgage.remainingInterest+'</td></tr>');
+						$('.table-2__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+results.newMonthlyMortgage.newMortgageTotal+'</td><td class="table__cell table__dollar">'+results.newMonthlyMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results.newMonthlyMortgage.remainingInterest+'</td><td class="table__cell table__dollar">'+results.interestSaved+'</td></tr>');
+						$('.savings').html(results.interestSaved);
+					}
+				});
+			});
+			// Refinance Calculator End
+			 
 
 
 
@@ -273,35 +312,35 @@
 <form class="form">
     <div class="group">
         <div class="title" >Loan Amount</div>
-        <input type="text"  name="loanAmount" id="loanAmount" >
+        <input placeholder="0" type="text"  name="loanAmount" id="loanAmount" >
     </div>
     <div class="group">
         <div class="title" >Interest Rate</div>
-        <input type="text"  name="interestRate" id="interestRate">
+        <input placeholder="0" type="text"  name="interestRate" id="interestRate">
     </div>
     <div class="group">
         <div class="title" >Term in Years</div>
-        <input type="text"  name="termInYears" id="termInYears">
+        <input placeholder="0" type="text"  name="termInYears" id="termInYears">
     </div>
     <div class="group">
         <div class="title" > Months Before First Adjustment </div>
-        <input type="text"  name="monthsBeforeFirstAdjustment" id="monthsBeforeFirstAdjustment">
+        <input placeholder="0" type="text"  name="monthsBeforeFirstAdjustment" id="monthsBeforeFirstAdjustment">
     </div>
     <div class="group">
         <div class="title" > Months Between Adjustments </div>
-        <input type="text"  name="monthsBetweenAdjustments" id="monthsBetweenAdjustments">
+        <input placeholder="0" type="text"  name="monthsBetweenAdjustments" id="monthsBetweenAdjustments">
     </div>
     <div class="group">
         <div class="title" >Expected Adjustment Rate</div>
-        <input type="text"  name="expectedAdjustmentRate" id="expectedAdjustmentRate">
+        <input placeholder="0" type="text"  name="expectedAdjustmentRate" id="expectedAdjustmentRate">
     </div>
     <div class="group">
         <div class="title" >Initial Interest Rate</div>
-        <input type="text"  name="initialInterestRate" id="initialInterestRate">
+        <input placeholder="0" type="text"  name="initialInterestRate" id="initialInterestRate">
     </div>
     <div class="group">
         <div class="title" >Maximum Interest Rate</div>
-        <input type="text"  name="maximumInterestRate" id="maximumInterestRate">
+        <input placeholder="0" type="text"  name="maximumInterestRate" id="maximumInterestRate">
     </div>
     </div>
     
@@ -331,14 +370,83 @@
         </thead>
         <tbody class="table-2__tbody-ARM"></tbody>
     </table>
-    <p class="savings"></p>
 </div>
 </div>
 </div>
 </div>
 </form>
 
+
+<br /><br/> <br /><br/>
         
+
+<div class="loan-calculator-More">
+    <div class="top">
+        <h2>Re-Finance Calculator</h2>
+        <br /><br/>
+<form class="form">
+    <div class="group">
+        <div class="title">Loan Amount</div>
+        <input type="text" placeholder="0" name="loanAmount" id="loanAmount" >
+    </div>
+    <div class="group">
+        <div class="title">Interest Rate</div>
+        <input type="text" placeholder="0" name="interestRate" id="interestRate">
+    </div>
+    <div class="group">
+        <div class="title">Term in Years</div>
+        <input type="text" placeholder="0" name="termInYears" id="termInYears">
+    </div>
+    <div class="group">
+        <div class="title">Payments Made</div>
+        <input type="text" placeholder="0" name="paymentsMade" id="paymentsMade">
+    </div>
+    <div class="group">
+        <div class="title"> New Interest Rate</div>
+        <input type="text" placeholder="0" name="newInterestRate" id="newInterestRate">
+    </div>
+    <div class="group">
+        <div class="title" >New Term in Years</div>
+        <input type="text" placeholder="0" name="newTermInYears" id="newTermInYears">
+    </div>
+</div>
+
+
+<div class="result">
+    <div class="left">
+    <div class="form__buttons">
+        <button class="calculate-btn-mortgage" type="submit">Calculate</button>
+    </div>
+</form>
+<div class="resultsReFi">
+    <h2 class="headline headline--results">Old Mortgage</h2>
+    <table class="table table-1">
+        <thead>
+            <tr>
+                <th class="table__header">Monthly Mortgage Payment</th>
+                <th class="table__header">Remaining Interest Payments</th>
+            </tr>
+        </thead>
+        <tbody class="table-1__tbody-ReFi"></tbody>
+    </table>
+    <h2 class="headline headline--results">New Mortgage</h2>
+    <table class="table table-2">
+        <thead>
+            <tr>
+                <th class="table__header">New Monthly Mortgage Total</th>
+                <th class="table__header">Monthly Mortgage Payment</th>
+                <th class="table__header">Remaining Interest Payments</th>
+                <th class="table__header">Interest Savings</th>
+            </tr>
+        </thead>
+        <tbody class="table-2__tbody-ReFi"></tbody>
+    </table>
+    
+    </div>
+    </div>
+</div>
+</div>
+
         
 
         <!--===== SCROLL REVEAL =====-->
