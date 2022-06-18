@@ -168,6 +168,41 @@
 				});
 			});
 			// Refinance Calculator End
+
+			// Buy vs Rent
+            var resultsBuyvsRent;
+			
+			function clearResults() {
+				$(".form__error").html("");
+				$('.table-1__tbody-RentvsBuy, .table-2__tbody-RentvsBuy').html("");
+			};
+		
+			$(function(){
+				$('body').on('submit','form',{},function(e){
+					e.preventDefault();	
+					// clear previous results
+					clearResults();
+					// get our inputs
+					var rawInputs = $(this).serializeArray();
+					// convert these to numbers and create our argument array
+					var args = {};
+					for(var i = 0; i < rawInputs.length; i++) {
+						args[rawInputs[i].name] = parseFloat(rawInputs[i].value);
+					}
+					// run the mortgage calculator
+					resultsBuyvsRent = mortgageCalculators.compareBuyVsRent(args);
+					if(resultsBuyvsRent.error) {
+						$(".form__error").html(resultsBuyvsRent.error);
+					} else {
+						console.log(resultsBuyvsRent);
+						$('.table-1__tbody-RentvsBuy').html('<tr><td class="table__cell">'+resultsBuyvsRent.currentValueOfHome+'</td><td class="table__cell">'+resultsBuyvsRent.totalOwedToBank+'</td><td class="table__cell">'+resultsBuyvsRent.equityOnHome+'</td></tr>');
+                        $('.table-2__tbody-RentvsBuy').html('<tr><td class="table__cell table__dollar">'+resultsBuyvsRent.netCostOfBuying+'</td><td class="table__cell">'+resultsBuyvsRent.netCostOfRenting+'</td><td class="table__cell">'+resultsBuyvsRent.benefitOfBuying+'</td></tr>');
+					}
+				});
+			});
+		
+
+			// Buy vs Rent End
 			 
 
 
@@ -230,6 +265,10 @@
             <tr>
                 <td><a class="appendex-link" href="#ReFinance">Re-Finance Comp</a></td>
                 <td style=" width: 400px; border-left: 1px solid grey;">Compares your old mortgage to the re-financed mortgage. Shows various information about the new mortgage including how much you will be saving or losing due to the new mortgage.</td>
+            </tr>
+            <tr>
+                <td><a class="appendex-link" href="#RentvsBuy">Buy vs Rent Comp</a></td>
+                <td style=" width: 400px; border-left: 1px solid grey;">Compares vrious numbers to provide an analysis to whether buying or renting a property would be more benifitial.</td>
             </tr>
             <!-- and so on... -->
         </tbody>
@@ -496,6 +535,98 @@
 
 
 
+
+<br />
+
+
+<div id="RentvsBuy"></div>
+<br/><br/><br />
+
+<div class="loan-calculator-More">
+    <div class="top">
+        <h2>Buy vs Rent Calculator</h2>
+        <br /><br/>
+<form class="form">
+    <div class="group">
+        <div class="title" >Monthly Rent</div>
+        <input type="text" placeholder="0" name="monthlyRent" id="monthlyRent" >
+    </div>
+    <div class="group">
+        <div class="title" >Est Annual Rent Increase (Percentage)</div>
+        <input type="text" placeholder="0" name="expectedAnnualRentIncrease" id="expectedAnnualRentIncrease" >
+    </div>
+    <div class="group">
+        <div class="title" >Purchase Price</div>
+        <input type="text" placeholder="0" name="purchasePrice" id="purchasePrice" >
+    </div>
+    <div class="group">
+        <div class="title" >Down Payment (Percentage)</div>
+        <input type="text" placeholder="0" name="downPayment" id="downPayment" >
+    </div>
+    <div class="group">
+        <div class="title" >Closing Costs (Percentage)</div>
+        <input type="text" placeholder="0" name="closingCosts" id="closingCosts" >
+    </div>
+    <div class="group">
+        <div class="title" >Interest Rate</div>
+        <input type="text" placeholder="0" name="interestRate" id="interestRate">
+    </div>
+    <div class="group">
+        <div class="title" >Term in Years</div>
+        <input type="text" placeholder="0" name="termInYears" id="termInYears">
+    </div>
+    <div class="group">
+        <div class="title" >Annual Appreciation</div>
+        <input type="text" placeholder="0" name="annualAppreciation" id="annualAppreciation">
+    </div>
+    <div class="group">
+        <div class="title" >How Long Before Selling (Years)</div>
+        <input type="text" placeholder="0" name="howLongBeforeSelling" id="howLongBeforeSelling">
+    </div>
+    <div class="group">
+        <div class="title" >Current Annual Interest (%)</div>
+        <input type="text" placeholder="0" name="currentAnnualInterest" id="currentAnnualInterest">
+    </div>
+    <div class="group">
+        <div class="title" >Income Tax (%)</div>
+        <input type="text" placeholder="0" name="incomeTaxRate" id="incomeTaxRate">
+    </div>
+</div>
+<div class="result">
+    <div class="left">
+    <div class="form__buttons">
+        <button class="calculate-btn-mortgage" type="submit">Calculate</button>
+    </div>
+</form>
+<div class="resultsBuyvsRent">
+    <h2 class="headline headline--results">Rent Vs Buy</h2>
+    <table class="table table-1">
+        <thead>
+            <tr>
+                <th class="table__header">Current Value Of Home</th>
+                <th class="table__header">Total Owed To Bank</th>
+                <th class="table__header">Equity On Home</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-1__tbody-RentvsBuy"></tbody>
+    </table>
+    <table class="table table-2">
+        <thead>
+            <tr>
+                <th class="table__header">Net Cost of Buying</th>
+                <th class="table__header">Net Cost Of Renting</th>
+                <th class="table__header">Benefit Of Buying</th>
+            </tr>
+        </thead>
+        <tbody class="table-2__tbody-RentvsBuy"></tbody>
+    </table>
+                
+        
+</div>
+</div>
+</div>
+</div>
 
         
 
