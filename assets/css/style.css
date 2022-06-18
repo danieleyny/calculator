@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+html {
+	scroll-behavior: smooth;
+  }
 
 /* tables */
 .table { 
@@ -11,7 +14,7 @@
   margin: 15px 0; 
 }
 .table__header { 
-  font-weight: lighter;
+  font-weight: 600;
   padding: 10px 20px 12px 12px;
   font-size: 15px;
   text-align: center; 
@@ -175,7 +178,7 @@ nav {
 
 .appendex-link {
 	text-decoration: none;
-	color: rgb(99, 99, 211);
+	color: rgb(98, 98, 159);
 }
 
 .styled-table thead tr {
@@ -200,7 +203,7 @@ nav {
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #727373;
 }
 
 .styled-table tbody tr.active-row {
@@ -209,9 +212,29 @@ nav {
 	background-color: rgb(238, 238, 238);
 }
 
+.styled-table tbody {
+	border-left: 2px solid #727373;
+	border-right: 2px solid #727373;
+	border-top: 2px solid #727373;
+
+
+}
+.styled-table thead {
+	border-left: 2px solid #727373;
+	border-right: 2px solid #727373;
+	border-top: 2px solid #727373;
+
+
+}
+
+.section-title{
+    font-size: 1.35rem;
+    color: rgb(98, 98, 159);
+    margin: 2rem 0;
+    text-align: center;
+}
 
 /* Table of content End */
-
 
 
 /* Cap Rate */
@@ -237,6 +260,36 @@ nav {
   }
 
  
+/*=============== SCROLL UP ===============*/
+
+.scrollup{
+	position: fixed;
+	background-color: #727373;
+	left: 1rem;
+	display: inline-flex;
+	padding: .3rem;
+	border-radius: .25rem;
+	transition: .6s;
+	text-decoration: none;
+  }
+  
+  .scrollup__icon{
+	font-size: 1rem;
+	color: #FFF;
+  }
+  
+  .scrollup:hover{
+	background-color: #14213d;
+	opacity: 1;
+  }
+  
+  /* Show Scroll Up*/
+  .show-scroll{
+	bottom: 3rem;
+  }
+  
+/*=============== SCROLL UP END ===============*/
+
   
   .loan-calculator,
   .loan-calculator * {
