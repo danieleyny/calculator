@@ -45,6 +45,11 @@ html {
 	margin: 10px 0;
 }
 
+.extrapay-btn:hover {
+	background: #14213d;
+  transition: .5s;
+  }
+
 @media screen and (max-width: 400px){
     .table { 
 		width: 100%;
@@ -314,9 +319,10 @@ nav {
 .scrollup{
 	position: fixed;
 	background-color: #727373;
-	left: 1rem;
+	left: .7rem;
+	bottom: 5.5rem;
 	display: inline-flex;
-	padding: .3rem;
+	padding: .2rem;
 	border-radius: .25rem;
 	transition: .6s;
 	text-decoration: none;

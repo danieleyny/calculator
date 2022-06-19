@@ -34,6 +34,20 @@
         
 
         <script type="text/javascript">
+
+
+
+function FormatNumber(nStr) {
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var pattern = /(\d+)(\d{3})/;
+  while (pattern.test(x1)) {
+    x1 = x1.replace(pattern, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+}
 			// Monthly Mortgage Payment Calculator
             var results;
 			
@@ -59,7 +73,7 @@
 					if(results.error) {
 						$(".form__error").html(results.error);
 					} else {
-						$('.results').html(results)
+						$('.results').html(FormatNumber(results))
 					}
 				});
 			});
@@ -94,8 +108,8 @@
 					if(results15vs30.error) {
 						$(".form__error").html(results15vs30.error);
 					} else {
-						$('.table-1__tbody').html('<tr><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.totalInterest+'</td><td class="table__cell table__dollar">'+results15vs30.fifteenYearMortgage.totalPayments+'</td></tr>');
-						$('.table-2__tbody').html('<tr><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.totalInterest+'</td><td class="table__cell table__dollar">'+results15vs30.thirtyYearMortgage.totalPayments+'</td></tr>');
+						$('.table-1__tbody').html('<tr><td class="table__cell table__dollar">'+FormatNumber(results15vs30.fifteenYearMortgage.monthlyMortgagePayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(results15vs30.fifteenYearMortgage.totalInterest)+'</td><td class="table__cell table__dollar">'+FormatNumber(results15vs30.fifteenYearMortgage.totalPayments)+'</td></tr>');
+						$('.table-2__tbody').html('<tr><td class="table__cell table__dollar">'+FormatNumber(results15vs30.thirtyYearMortgage.monthlyMortgagePayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(results15vs30.thirtyYearMortgage.totalInterest)+'</td><td class="table__cell table__dollar">'+FormatNumber(results15vs30.thirtyYearMortgage.totalPayments)+'</td></tr>');
 					}
 				});
 			});
@@ -128,8 +142,8 @@
 					if(resultsARM.error) {
 						$(".form__error").html(resultsARM.error);
 					} else {
-						$('.table-1__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+resultsARM.fixedRate.monthlyMortgagePaymentARM+'</td></tr>');
-						$('.table-2__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+resultsARM.ARM.initialMonthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+resultsARM.ARM.maxMonthlyMortgagePayment+'</td></tr>');
+						$('.table-1__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsARM.fixedRate.monthlyMortgagePaymentARM)+'</td></tr>');
+						$('.table-2__tbody-ARM').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsARM.ARM.initialMonthlyMortgagePayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsARM.ARM.maxMonthlyMortgagePayment)+'</td></tr>');
 					}
 				});
 			});
@@ -161,8 +175,8 @@
 					if(results.error) {
 						$(".form__error").html(results.error);
 					} else {
-						$('.table-1__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+results.oldMonthlyMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results.oldMonthlyMortgage.remainingInterest+'</td></tr>');
-						$('.table-2__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+results.newMonthlyMortgage.newMortgageTotal+'</td><td class="table__cell table__dollar">'+results.newMonthlyMortgage.monthlyMortgagePayment+'</td><td class="table__cell table__dollar">'+results.newMonthlyMortgage.remainingInterest+'</td><td class="table__cell table__dollar">'+results.interestSaved+'</td></tr>');
+						$('.table-1__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+FormatNumber(results.oldMonthlyMortgage.monthlyMortgagePayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(results.oldMonthlyMortgage.remainingInterest)+'</td></tr>');
+						$('.table-2__tbody-ReFi').html('<tr><td class="table__cell table__dollar">'+FormatNumber(results.newMonthlyMortgage.newMortgageTotal)+'</td><td class="table__cell table__dollar">'+FormatNumber(results.newMonthlyMortgage.monthlyMortgagePayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(results.newMonthlyMortgage.remainingInterest)+'</td><td class="table__cell table__dollar">'+FormatNumber(results.interestSaved)+'</td></tr>');
 						$('.savings').html(results.interestSaved);
 					}
 				});
@@ -195,8 +209,8 @@
 						$(".form__error").html(resultsBuyvsRent.error);
 					} else {
 						console.log(resultsBuyvsRent);
-						$('.table-1__tbody-RentvsBuy').html('<tr><td class="table__cell table__dollar">'+resultsBuyvsRent.currentValueOfHome+'</td><td class="table__cell table__dollar">'+resultsBuyvsRent.totalOwedToBank+'</td><td class="table__cell table__dollar">'+resultsBuyvsRent.equityOnHome+'</td></tr>');
-                        $('.table-2__tbody-RentvsBuy').html('<tr><td class="table__cell table__dollar">'+resultsBuyvsRent.netCostOfBuying+'</td><td class="table__cell table__dollar">'+resultsBuyvsRent.netCostOfRenting+'</td><td class="table__cell table__dollar">'+resultsBuyvsRent.benefitOfBuying+'</td></tr>');
+						$('.table-1__tbody-RentvsBuy').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.currentValueOfHome)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.totalOwedToBank)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.equityOnHome)+'</td></tr>');
+                        $('.table-2__tbody-RentvsBuy').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.netCostOfBuying)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.netCostOfRenting)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBuyvsRent.benefitOfBuying)+'</td></tr>');
 					}
 				});
 			});
@@ -230,12 +244,12 @@
 					if(resultsBorrow.error) {
 						$(".form__error").html(results.error);
 					} else {
-						$('.js-loanAmount').html('<td class="table__cell">Loan Amount</td><td class="table__cell table__dollar">'+resultsBorrow.conservative.loanAmount+'</td><td class="table__cell table__dollar">'+resultsBorrow.aggressive.loanAmount+'</td>');
-						$('.js-downPayment').html('<td class="table__cell">Down Payment</td><td class="table__cell table__dollar">'+resultsBorrow.conservative.downPayment+'</td><td class="table__cell table__dollar">'+resultsBorrow.aggressive.downPayment+'</td>');
-						$('.js-priceOfHome').html('<td class="table__cell">Price of Home</td><td class="table__cell table__dollar">'+resultsBorrow.conservative.priceOfHome+'</td><td class="table__cell table__dollar">'+resultsBorrow.aggressive.priceOfHome+'</td>');
-						$('.js-principalAndInterest').html('<td class="table__cell">Principal and Interest</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.conservative.principalAndInterest+'</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.aggressive.principalAndInterest+'</td>');
-						$('.js-taxesAndInsurance').html('<td class="table__cell">Taxes and Insurance</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.conservative.taxesAndInsurance+'</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.aggressive.taxesAndInsurance+'</td>');
-						$('.js-totalMonthlyPayment').html('<td class="table__cell">Total Monthly Payment</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.conservative.totalMonthlyPayment+'</td><td class="table__cell table__dollar">'+resultsBorrow.futureMonthlyPayment.aggressive.totalMonthlyPayment+'</td>');
+						$('.js-loanAmount').html('<td class="table__cell">Loan Amount</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.conservative.loanAmount)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.aggressive.loanAmount)+'</td>');
+						$('.js-downPayment').html('<td class="table__cell">Down Payment</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.conservative.downPayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.aggressive.downPayment)+'</td>');
+						$('.js-priceOfHome').html('<td class="table__cell">Price of Home</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.conservative.priceOfHome)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.aggressive.priceOfHome)+'</td>');
+						$('.js-principalAndInterest').html('<td class="table__cell">Principal and Interest</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.conservative.principalAndInterest)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.aggressive.principalAndInterest)+'</td>');
+						$('.js-taxesAndInsurance').html('<td class="table__cell">Taxes and Insurance</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.conservative.taxesAndInsurance)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.aggressive.taxesAndInsurance)+'</td>');
+						$('.js-totalMonthlyPayment').html('<td class="table__cell">Total Monthly Payment</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.conservative.totalMonthlyPayment)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsBorrow.futureMonthlyPayment.aggressive.totalMonthlyPayment)+'</td>');
 					}
 				});
 			});
@@ -257,7 +271,7 @@
 					var monthlyBreakdown = thisYear.monthlyBreakdown;
 					$('.table-3__tbody').empty();
 					$.each(monthlyBreakdown,function(i,month){
-						$('.table-3__tbody').append('<tr><td class="table__cell yearsection">'+(i+1)+'</td><td class="table__cell yearsection table__dollar">'+month.interestPayment+'</td><td class="table__cell yearsection table__dollar">'+month.principalPayment+'</td><td class="table__cell yearsection table__dollar">'+month.monthlyPayment+'</td><td class="table__cell yearsection table__dollar">'+month.balance+'</td></tr>');
+						$('.table-3__tbody').append('<tr><td class="table__cell yearsection">'+(i+1)+'</td><td class="table__cell yearsection table__dollar">'+FormatNumber(month.interestPayment)+'</td><td class="table__cell yearsection table__dollar">'+FormatNumber(month.principalPayment)+'</td><td class="table__cell yearsection table__dollar">'+FormatNumber(month.monthlyPayment)+'</td><td class="table__cell yearsection table__dollar">'+FormatNumber(month.balance)+'</td></tr>');
 					});
 				}).on('submit', 'form', {}, function(e) {
 					e.preventDefault();	
@@ -276,12 +290,12 @@
 					if(resultsExtra.error) {
 						$(".form__error").html(resultsExtra.error);
 					} else {
-						$('.table-1__tbody-Extra').html('<tr><td class="table__cell table__dollar">'+resultsExtra.withExtraPayment.totalCost+'</td><td class="table__cell table__dollar">'+resultsExtra.withExtraPayment.totalMonthlyPayment+'</td></tr>');
+						$('.table-1__tbody-Extra').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsExtra.withExtraPayment.totalCost)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsExtra.withExtraPayment.totalMonthlyPayment)+'</td></tr>');
 						$('.table-2__tbody-Extra').empty();
 						$.each(resultsExtra.withExtraPayment.payments,function(j,annualPayment){
-							$('.table-2__tbody-Extra').append('<tr><td class="table__cell yearsection">'+ (j+1) +'</td><td class="table__cell yearsection table__dollar">'+ annualPayment.annualInterestPayment+'</td><td class="table__cell yearsection table__dollar">'+annualPayment.annualPrincipalPayment+'</td><td class="table__cell yearsection table__dollar">'+annualPayment.balance+'</td><td class="table__cell yearsection"><button class="extrapay-btn js-ViewBreakdown" data-id="'+j+'" type="button">View</button></td></tr>');
+							$('.table-2__tbody-Extra').append('<tr><td class="table__cell yearsection">'+ (j+1) +'</td><td class="table__cell yearsection table__dollar">'+ FormatNumber(annualPayment.annualInterestPayment)+'</td><td class="table__cell yearsection table__dollar">'+FormatNumber(annualPayment.annualPrincipalPayment)+'</td><td class="table__cell yearsection table__dollar">'+ FormatNumber(annualPayment.balance)+'</td><td class="table__cell yearsection"><button class="extrapay-btn js-ViewBreakdown" data-id="'+j+'" type="button">View</button></td></tr>');
 						});
-						$('.table-4__tbody').html('<tr><td class="table__cell table__dollar">'+resultsExtra.withoutExtraPayment.totalCost+'</td><td class="table__cell table__dollar">'+resultsExtra.withoutExtraPayment.totalMonthlyPayment+'</td></tr>');
+						$('.table-4__tbody').html('<tr><td class="table__cell table__dollar">'+FormatNumber(resultsExtra.withoutExtraPayment.totalCost)+'</td><td class="table__cell table__dollar">'+FormatNumber(resultsExtra.withoutExtraPayment.totalMonthlyPayment)+'</td></tr>');
 					}
 				});
 			});
