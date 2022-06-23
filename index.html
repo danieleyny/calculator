@@ -6,6 +6,8 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
 
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
@@ -22,7 +24,7 @@
 
         <script src="https://kit.fontawesome.com/0043dc8ce8.js" crossorigin="anonymous"></script>
 
-        <title>Nophel</title>
+        <title>Calculo</title>
     </head>
     <body>
         <!--===== HEADER =====-->
@@ -35,11 +37,10 @@
             
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Calculators</a></li>
-                <li><a href="#">Cap Rate</a></li>
-                <li><a href="mortgage.html">Mortgage</a></li>
-                <li><a href="#">Cash Flow</a></li>
+                <li><a href="realestate.html">Real Estate</a></li>
+                <li><a href="#">Savings</a></li>
+                <li><a href="#">Stock Analysis</a></li>
+                <li><a href="#">Investment</a></li>
                 <li><a href="#"></a></li>
 
         
@@ -52,9 +53,108 @@
         </nav>
         </header>
         <!-- Header End -->
-        <br /><br/><br /><br/><br /><br />
+        <br /><br/> 
 
 
+<!--==================== HOME ====================-->
+<section class="home" id="home">
+  <div class="home__container-main container-main grid-main">
+      <img src="../assets/img/calculohomeimg-removebg-preview.png" alt="" class="home__img-main">
+
+      <div class="home__data-main">
+          <h1 class="home__title-main">Welcome To, <br> <span class="home-title-span"> Calculo </span></h1>
+          <p class="home__description-main">
+              The only website you'll need, 
+              to get all of your buisness calculations done.
+          </p>
+          <a href="#new" class="button-main">Calculators</a>
+      </div>
+  </div>
+</section>
+
+
+<br /><br/><br />
+
+
+
+ <!--==================== NEW ====================-->
+ <section class="new section-main container-main" id="new">
+  <h2 class="section-title">Available Calculators</h2>
+
+  <div class="new__container">
+      <div class="swiper new-swiper">
+          <div class="swiper-wrapper">
+              <article class="new__card swiper-slide">
+                  <div class="new__overlay"></div>
+
+                  <img src="./assets/img/mortgagelogoimg.png" alt="" class="new__img">
+                  <br/> <br/>
+                  <h3 class="new__price">Mortgage Calculator's</h3>
+                  <a href="./RealEstate/mortgage.html"><button class="button-new">View</button></a>
+
+      
+              </article>
+
+              <article class="new__card swiper-slide">
+                <div class="new__overlay"></div>
+
+                <img src="assets/img/stocksimglogo.png" alt="" class="new__img">
+                <br/> <br/>
+                <h3 class="new__price">Stock  <br/> Calculator's</h3>
+                <a href="./RealEstate/mortgage.html"><button class="button-new">View</button></a>
+
+            </article>
+
+              <article class="new__card swiper-slide">
+                  <div class="new__overlay"></div>
+
+                  <img src="assets/img/realestateimglogo.png" alt="" class="new__img">
+                  <br/> <br/>
+                <h3 class="new__price">Real Estate  <br/> Calculator's</h3>
+                <a href="./RealEstate/mortgage.html"><button class="button-new">View</button></a>
+
+              </article>
+
+
+              <article class="new__card swiper-slide">
+                  <div class="new__overlay"></div>
+
+                  <img src="assets/img/moneyimglogo-removebg-preview.png" alt="" class="new__img">
+                  <br/> <br/>
+                <h3 class="new__price">Investment <br/> Calculator's</h3>
+                <a href="./RealEstate/mortgage.html"><button class="button-new">View</button></a>
+
+              </article>
+
+              <article class="new__card swiper-slide">
+                  <div class="new__overlay"></div>
+
+                  <img src="assets/img/savingslogoimg.png" alt="" class="new__img">
+                  <br/> <br/>
+                  <h3 class="new__price">Savings <br/> Calculator's</h3>
+                  <a href="./RealEstate/mortgage.html"><button class="button-new">View</button></a>
+
+              </article>
+
+          </div>
+
+          <div class="swiper-pagination"></div>
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br/><br />
         
         <!-- Cap Rate Calculator -->
         <div class="loan-calculator">
@@ -105,7 +205,10 @@
             </div>
           </div>
       
-          <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+
+
+
+
         
         
         <!-- Cap Rate Calculator End -->
@@ -116,11 +219,16 @@
 
         
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
         <script src="./assets/js/app.js"></script>
+
+          <!--=============== SCROLL REVEAL ===============-->
+
+ <!--=============== SWIPER JS ===============-->
+        <script src="./assets/js/swiper-bundle.min.js"></script>
+
+ <!--=============== MAIN JS ===============-->
+ <script src="./assets/js/home.js"></script>
     </body>
 </html>

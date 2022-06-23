@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 * {
     margin: 0px;
     padding: 0px;
@@ -7,6 +9,10 @@
 html {
 	scroll-behavior: smooth;
   }
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
 
 /* tables */
 .table { 
@@ -97,14 +103,13 @@ nav {
     align-items: center;
     min-height: 9.5vh;
 	background-color: #38486d;
-	    
 }
 .l-header{
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--z-fixed);
+  z-index: 100;
 }
 
 .logo {
@@ -282,7 +287,7 @@ nav {
 }
 
 .section-title{
-    font-size: 1.35rem;
+    font-size: 1.55rem;
     color: rgb(98, 98, 159);
     margin: 2rem 0;
     text-align: center;
