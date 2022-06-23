@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 
-
+p, h1, h2, h3, span {
+  cursor: default;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -21,6 +23,10 @@
 
   .home__img-main {
     width: 320px;
+    justify-self: center;
+  }
+  .free__img-main {
+    width: 370px;
     justify-self: center;
   }
   
@@ -85,6 +91,11 @@
       justify-self: center;
       margin-top: 27px;
     }
+    .free__img-main {
+      width: 350px;
+      justify-self: center;
+      margin-top: -40px;
+    }
   
   }
 
@@ -120,6 +131,11 @@
     .home__img-main {
       width: 400px;
       margin-left: 7rem;
+    }
+
+    .free__img-main {
+      width: 500px;
+      margin-left: 5rem;
     }
 
 
@@ -290,9 +306,265 @@ margin-left: -1.65rem;
 
 
 
+.free-span {
+  color: #38486d;
+     font-size: 15px;
+     font-weight: bolder;
+     text-decoration: underline;
+}
 
 
 
 
 
 
+/* == The Team ==*/
+.container__team
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.content {
+  justify-content: center;
+  text-align: center;
+}
+.container__team .card
+{
+   width: 330px;
+   height: 416px;
+   padding: 60px 30px;
+   margin: 20px;
+   background: #f2f3f7;
+   box-shadow: 0.6em 0.6em 1.2em #d2dce9,
+               -0.5em -0.5em 1em #ffffff;
+   border-radius: 20px;
+}
+.container__team .card .content
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.container__team .card .content .imgBxZelle
+{
+   width: 180px;
+   height: 180px;
+   border-radius: 0%;
+   position: relative;
+   margin-bottom: -15px;
+   margin-top: -30px;
+   overflow: hidden;
+}
+.container__team .card .content .imgBxApple
+{
+   width: 180px;
+   height: 180px;
+   border-radius: 0%;
+   position: relative;
+   margin-bottom: -15px;
+   margin-top: -30px;
+   overflow: hidden;
+}
+.container__team .card .content .imgBxCash
+{
+   width: 180px;
+   height: 180px;
+   border-radius: 0%;
+   position: relative;
+   margin-bottom: -15px;
+   margin-top: -30px;
+   overflow: hidden;
+}
+
+.container__team .card .content .imgBxCash img
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+.container__team .card .content .imgBxApple img
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.container__team .card .content .imgBxZelle img
+{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.contentBx {
+  text-align: center;
+}
+
+.container__team .card .content .contentBx h4
+{
+   color: #36187d;
+   font-size: 1.7rem;
+   font-weight: bold;
+   text-align: center;
+   letter-spacing: 1px;
+   margin-top: 40px;
+   margin-bottom: -18px;
+}
+.container__team .card .content .contentBx h5
+{
+   color: #6c758f;
+   font-size: .9rem;
+   font-weight: bold;
+   text-align: center;
+   margin-top: 20px;
+   margin-bottom: 40px;
+}
+.container__team .card .content .sci
+{
+   margin-top: 20px;
+}
+.container__team .card .content .sci a
+{
+   text-decoration: none;
+   color: #6c758f;
+   font-size: 30px;
+   margin: 10px;
+   transition: color 0.4s;
+}
+.container__team .card .content .sci a:hover
+{
+   color: #0196e3;
+}
+/*   colors
+        #f2f3f7
+        #d2dce9
+        #36187d
+        #6c758f
+        #0196e3
+ */
+
+ .container__team .card .content .imgBxCash:hover {
+    transition: .5s;
+    box-shadow: 0px 0px 30px 3px #00d6329b;
+    
+}
+
+ .container__team .card .content .imgBxZelle:hover {
+    transition: .5s;
+    box-shadow: 0px 0px 30px 3px #671ccaa8;
+}
+
+ .container__team .card .content .imgBxApple:hover {
+    transition: .5s;
+    box-shadow: 0px 0px 30px 3px #23c5dba8;
+}
+
+
+.donate-button {
+  padding: 8px 35px 8px 35px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid #38486d;
+	color: #38486d;
+}
+
+.container__team .card .content .contentBx button:hover {
+    background-color: #38486d;
+    transition: .5s;
+    color: white;
+    border: .1px solid #38486d;
+    cursor: pointer;
+}
+
+
+.btn__team2 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 47px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+
+.btn__team3 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 54px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+
+.btn__team4 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 35px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+
+.btn__team5 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 2px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+
+.btn__team6 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 25px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+
+.btn__team7 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 19px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+.btn__team8 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 50px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+.btn__team9 {
+    padding: 8px 35px 8px 35px;
+    margin-left: 28px;
+    border-radius: 50px;
+    background-color: transparent;
+	border: 2px solid var(--first-color);
+	color: var(--first-color);
+}
+
+/* == The Team End ==*/
