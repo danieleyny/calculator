@@ -619,3 +619,160 @@ input::-webkit-inner-spin-button {
   }
   
 /* Cap Rate End */
+
+
+
+
+
+
+/*=============== FOOTER ===============*/
+.footer {
+	overflow: hidden;
+  }
+  
+  .footer__container {
+	position: relative;
+	row-gap: 2rem;
+  }
+  
+  .footer__logo {
+	display: flex;
+	align-items: center;
+	column-gap: .25rem;
+	color: hsl(355, 4%, 15%);
+	font-weight: 500;
+  }
+  
+  .footer__logo-img {
+	width: 5rem;
+  }
+  
+  .footer__description {
+	font-size: .75rem;
+  }
+  
+ 
+  .footer__title {
+	margin-bottom: 1rem;
+  }
+  .footer__logo {
+	margin-bottom: -2rem;
+	margin-left: -25px;
+  }
+  
+  .footer__title {
+	font-size: 1.25rem;
+  }
+  
+  .footer__links, 
+  .footer__aviables {
+	display: flex;
+	flex-direction: column;
+	row-gap: .75rem;
+  }
+  
+  .footer__link {
+	color: hsl(355, 4%, 35%);
+	transition: .3s;
+  }
+  
+  .footer__link:hover {
+	color: hsl(355, 4%, 15%);
+  }
+  
+  .footer__aviable-img {
+	width: 100px;
+	cursor: pointer;
+  }
+  
+  .footer__copy {
+	display: block;
+	margin: 3.5rem 0 1rem 0;
+	text-align: center;
+	font-size: .75rem;
+	color: hsl(355, 4%, 55%);
+  }
+  
+ 
+  
+  .footer__img1 {
+	top: 65%;
+	right: -3.1rem;
+	position: absolute;
+	width: 300px;
+  }
+  
+  .footer__img2 {
+	top: 60%;
+	right: .5rem;
+	position: absolute;
+	width: 220px;
+  }
+
+
+
+  /* For medium devices */
+@media screen and (min-width: 576px) {
+	.footer__container {
+	  grid-template-columns: repeat(2, 1fr);
+	}
+  }
+
+
+  @media screen and (min-width: 767px) {
+	.footer__container {
+	  grid-template-columns: repeat(3, 1fr);
+	}
+  }
+
+
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+
+	.footer__container {
+	  grid-template-columns: repeat(4, max-content);
+	  justify-content: space-between;
+	}
+	.footer__copy {
+	  margin-top: 7rem;
+	}
+	
+	.footer__img1 {
+	  top: 40%;
+	  left: -20px;
+	  width: 320px;
+
+	}
+	.footer__img2 {
+	  top: 70%;
+	  right: -1rem;
+	  width: 200px;
+
+	}
+	
+  }
+
+  @media screen and (max-width: 400px) {
+	.footer__img1 {
+		top: 30%;
+		right: -2.8rem;
+		position: absolute;
+		width: 250px;
+	  }
+	  
+	  .footer__img2 {
+		top: 50%;
+		right: -1.3rem;
+		position: absolute;
+		width: 200px;
+	  }
+  }
+
+  
+  footer a {
+	text-decoration: none;
+  }
+  footer ul {
+	list-style: none;
+  }
