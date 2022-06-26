@@ -34,6 +34,14 @@
         <script type="text/javascript">
 
 
+function scrollUp(){
+  const scrollUp = document.getElementById('scroll-up');
+  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+
 
 function FormatNumber(nStr) {
   nStr += '';
@@ -336,7 +344,6 @@ function FormatNumber(nStr) {
       <h2 class="section-title">Table of Contents</h2>
  
 
-
       <table class="styled-table">
         <thead>
             <tr>
@@ -347,37 +354,39 @@ function FormatNumber(nStr) {
         <tbody>
             <tr>
                 <td><a class="appendex-link" href="#mmp">Monthly Mortgage Payment</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">A calculator that will tell you how much you will need to pay per month to pay off your mortgage in the requireed time frame.</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#mmp">A calculator that will tell you how much you will need to pay per month to pay off your mortgage in the requireed time frame.</a></td>
             </tr>
             <tr>
                 <td><a class="appendex-link" href="#15vs30comp">15 vs 30 Year Mortgage Comp</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">Creates a comparable between a 15 year and 30 mortgage showing various important information to help analyze them.</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#15vs30comp">Creates a comparable between a 15 year and 30 mortgage showing various important information to help analyze them.</a></td>
             </tr>
             <tr>
                 <td><a class="appendex-link" href="#FixedvsARM">Fixed Rate vs ARM Mortgage Comp</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">Creates a comparable between a fixed rate mortgage and an adjustable-rate mortgage (ARM).</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#FixedvsARM">Creates a comparable between a fixed rate mortgage and an adjustable-rate mortgage (ARM).</a></td>
             </tr>
             <tr>
                 <td><a class="appendex-link" href="#ReFinance">Re-Finance Comp</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">Compares your old mortgage to the re-financed mortgage. Shows various information about the new mortgage including how much you will be saving or losing due to the new mortgage.</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#ReFinance">Compares your old mortgage to the re-financed mortgage. Shows various information about the new mortgage including how much you will be saving or losing due to the new mortgage.</a></td>
             </tr>
             <tr>
                 <td><a class="appendex-link" href="#RentvsBuy">Buy vs Rent Comp</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">Compares various numbers to provide an analysis to whether buying or renting a property would be more benifitial.</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#RentvsBuy">Compares various numbers to provide an analysis to whether buying or renting a property would be more benifitial.</a></td>
             </tr>
             <tr>
                 <td><a class="appendex-link" href="#borrow">How much can you borrow?</a></td>
-                <td style=" width: 400px; border-left: 1px solid grey;">Gives a break down of how much you can borrow if you want to take a conservative approach or an aggressive approach.</td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#borrow">Gives a break down of how much you can borrow if you want to take a conservative approach or an aggressive approach.</a></td>
+            </tr>
+            <tr>
+                <td><a class="appendex-link" href="#ExtraPay">Extra Mortgage Payments</a></td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#ExtraPay">Breaks down essentials about your mortgage if you provide additional extra monthly payments.</a></td>
             </tr>
             <!-- and so on... -->
         </tbody>
     </table>
+
       <br /><br/><br/>
       
 
-    <a href="#" class="scrollup" id="scroll-up"> 
-        <i class="ri-arrow-up-fill scrollup__icon"></i>
-    </a>
 
 
       <div id="mmp"></div>
@@ -618,10 +627,10 @@ function FormatNumber(nStr) {
     <table class="table table-2">
         <thead>
             <tr>
-                <th class="table__header">New Monthly Mortgage Total</th>
-                <th class="table__header">Monthly Mortgage Payment</th>
-                <th class="table__header">Remaining Interest Payments</th>
-                <th class="table__header">Interest Savings</th>
+                <th class="table__header yearsection">New Monthly Mortgage Total</th>
+                <th class="table__header yearsection">Monthly Mortgage Payment</th>
+                <th class="table__header yearsection">Remaining Interest Payments</th>
+                <th class="table__header yearsection">Interest Savings</th>
             </tr>
         </thead>
         <tbody class="table-2__tbody-ReFi"></tbody>
@@ -779,6 +788,7 @@ function FormatNumber(nStr) {
 </form>
 <br /><br /><br />
 
+
 <div class="resultsBorrow">
     <h2 class="headline headline--results">How Much Can I Borrow?</h2>
     <table class="table table-1">
@@ -789,7 +799,7 @@ function FormatNumber(nStr) {
                 <th class="table__header">Aggressive</th>
             </tr>
         </thead>
-        <tbody class="table-1__tbody">
+        <tbody>
             <tr class="js-loanAmount"><td class="table__cell">Loan Amount</td></tr>
             <tr class="js-downPayment"><td class="table__cell">Down Payment<td></tr>
             <tr class="js-priceOfHome"><td class="table__cell">Price of Home</td></tr>
@@ -803,7 +813,7 @@ function FormatNumber(nStr) {
                 <th class="table__header">Aggressive</th>
             </tr>
         </thead>
-        <tbody class="table-2__tbody">
+        <tbody>
             <tr class="js-principalAndInterest"><td class="table__cell">Principal and Interest</td></tr>
             <tr class="js-taxesAndInsurance"><td class="table__cell">Taxes and Insurance<td></tr>
             <tr class="js-totalMonthlyPayment"><td class="table__cell">Total Monthly Payment</td></tr>
@@ -909,11 +919,79 @@ function FormatNumber(nStr) {
 </div>
 </div>
 </div>
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section-main">
+        <div class="footer__container container-main grid-main">
+            <div>
+                <a href="#" class="footer__logo">
+                    <img src="../assets/img/logo.png" alt="" class="footer__logo-img"> 
+                    Calculo
+                </a>
+
+                
+            </div>
+
+            <div>
+                <h3 class="footer__title">Our Sections</h3>
+
+                <ul class="footer__links">
+                  <li>
+                    <a href="./index.html" class="footer__link">Home Page</a>
+                </li>
+                    <li>
+                        <a href="../index.html#donate" class="footer__link">Donate</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#new" class="footer__link">Calculators</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">Support</h3>
+
+                <ul class="footer__links">
+                    
+                    <li>
+                        <a href="../index.html#info" class="footer__link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">Follow Us</h3>
+
+              
+                  <div class="social-icons">
+                    <a href="https://github.com/danieleyny">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/danieleyny/?hl=en">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/daniel-eyny/">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
 
 
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+
+            <img src="../assets/img/footerimg2clear.gif" alt="" class="footer__img1">
+
+        </div>
+
+        <span class="footer__copy">&#169; Eyny. All rights reserved</span>
+    </footer>
+
+
+     <!--=============== SCROLL UP ===============-->
+     <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>    
+       
 
         <!--===== MAIN JS =====-->
         <script src="../assets/js/main.js"></script>

@@ -14,6 +14,59 @@ body {
 	font-family: 'Poppins', sans-serif;
 }
 
+img {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+	position: fixed;
+	right: 1rem;
+	bottom: -30%;
+	background-color: #38486d;
+	box-shadow: 0 4px 12px hsla(0, 0%, 20%, .1);
+	display: inline-flex;
+	padding: .35rem;
+	border-radius: .25rem;
+	z-index: 10;
+	transition: .4s;
+	text-decoration: none;
+  }
+  
+  .scrollup:hover {
+	background-color: #4e6395;
+  }
+  
+  .scrollup__icon {
+	font-size: 1.25rem;
+	color: #fff;
+  }
+  
+  /* Show Scroll Up*/
+  .show-scroll {
+	bottom: 3rem;
+  }
+  
+  /*=============== SCROLL BAR ===============*/
+  ::-webkit-scrollbar {
+	width: .6rem;
+	background: hsl(355, 8%, 44%);
+	border-radius: 1rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background: hsl(355, 32%, 17%);
+	border-radius: 1rem;
+  }
+/*=============== SCROLL UP End ===============*/
+
+
+
 /* tables */
 .table { 
   width: 100%;
@@ -229,11 +282,18 @@ nav {
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   box-shadow: 0.6em 0.6em 1.2em #d2dce9,
+               -0.5em -0.5em 1em #ffffff;
 	width: 800px;
     margin: 24px auto;
 	text-align: center;
-
+	border-radius: 1em;
+	overflow: hidden;
+	border: 2px solid white;
+	
 }
+
+
 
 .appendex-link {
 	text-decoration: none;
@@ -241,11 +301,15 @@ nav {
 }
 
 .styled-table thead tr {
-    background-color: #7f8181;
+    background-color: #38486d;
     color: #ffffff;
     text-align: center;
+	height: 55px;
+	font-size: 15px;
 	
 }
+
+
 
 .styled-table th,
 .styled-table td {
@@ -253,16 +317,18 @@ nav {
 	
 }
 
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
+
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #f5f5f5;
+}
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #fff;
 }
 
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #727373;
+.content-description {
+	color: #28333b;
+	text-decoration: none;
 }
 
 .styled-table tbody tr.active-row {
@@ -271,20 +337,7 @@ nav {
 	background-color: rgb(238, 238, 238);
 }
 
-.styled-table tbody {
-	border-left: 2px solid #727373;
-	border-right: 2px solid #727373;
-	border-top: 2px solid #727373;
 
-
-}
-.styled-table thead {
-	border-left: 2px solid #727373;
-	border-right: 2px solid #727373;
-	border-top: 2px solid #727373;
-
-
-}
 
 .section-title{
     font-size: 1.55rem;
@@ -319,38 +372,6 @@ nav {
   }
 
  
-/*=============== SCROLL UP ===============*/
-
-.scrollup{
-	position: fixed;
-	background-color: #727373;
-	left: .7rem;
-	bottom: 5.5rem;
-	display: inline-flex;
-	padding: .2rem;
-	border-radius: .25rem;
-	transition: .6s;
-	text-decoration: none;
-  }
-  
-  .scrollup__icon{
-	font-size: 1rem;
-	color: #FFF;
-  }
-  
-  .scrollup:hover{
-	background-color: #14213d;
-	opacity: 1;
-  }
-  
-  /* Show Scroll Up*/
-  .show-scroll{
-	bottom: 3rem;
-  }
-  
-/*=============== SCROLL UP END ===============*/
-
-  
   .loan-calculator,
   .loan-calculator * {
 	box-sizing: border-box;
@@ -768,6 +789,19 @@ input::-webkit-inner-spin-button {
 		width: 200px;
 	  }
   }
+  .section-main {
+    padding: 4.5rem 0 1rem;
+  }
+
+  .container-main {
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .grid-main {
+    display: grid;
+  }
 
   
   footer a {
@@ -776,3 +810,57 @@ input::-webkit-inner-spin-button {
   footer ul {
 	list-style: none;
   }
+
+  @media screen and (min-width: 767px) {
+	.section-main {
+	   padding: 6.5rem 0 2rem;
+	 }
+   }
+   @media screen and (max-width: 320px) {
+    .container-main {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  
+  }
+
+   /* For large devices */
+@media screen and (min-width: 992px) {
+    .container-main {
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+.social-icons {
+	display: flex;
+	margin-top: 0.5rem;
+  }
+  
+  .social-icons a {
+	width: 35px;
+	height: 35px;
+	border-radius: 5px;
+	background: linear-gradient(45deg, #38486d, #38486d);
+	color: #fff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 0.5rem;
+	transition: 0.3s;
+  }
+  
+  .social-icons a:hover {
+	transform: scale(1.15);
+  }
+
+
+
+  @media (max-width: 480px) {
+	.social-icons a {
+	  width: 30px;
+	  height: 30px;
+	  line-height: 30px;
+	}
+  
+  }
+  /*== Footer End ==*/
