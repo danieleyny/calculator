@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/cashflow.css">
+
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="../assets/img/logo.png" type="image/x-icon">
+
+
+        <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.1.0">
+            const AutoNumeric = require('autonumeric');
+          </script>
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <script src="https://kit.fontawesome.com/0043dc8ce8.js" crossorigin="anonymous"></script>
+
+        <title>Cash Flow Calculators</title>
+    
+        
+
+        <script type="text/javascript">
+
+			// Scroll Up Section 
+
+function scrollUp(){
+  const scrollUp = document.getElementById('scroll-up');
+  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+            // Scroll Up Section End
+
+
+
+		</script>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+        <nav>
+    
+            <div class="logo">
+                <img src="../assets/img/logowhite.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Calculators</a></li>
+                <li><a href="#">Cap Rate</a></li>
+                <li><a href="#">Cash Flow</a></li>
+                <li><a href="#"></a></li>
+        
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+        <!-- Header End -->
+
+      <br /><br/><br /><br/>
+
+      <h2 class="section-title">Table of Contents</h2>
+ 
+
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Calculator Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a class="appendex-link" href="#cashflow">Cash Flow</a></td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#cashflow">The cash flow calculator breaks down the the amount of cash that comes in and goes out of a property.</a></td>
+            </tr>
+            <tr>
+                <td><a class="appendex-link" href="#cashflow">Cash on Cash</a></td>
+                <td style="width: 400px; border-left: .1px solid rgb(230, 230, 230);"><a class="content-description" href="#cashflow">The cash-on-cash calculator breaksdown the rate of return and calculates the cash income earned on the cash invested in a property.</a></td>
+            </tr>
+           
+            <!-- and so on... -->
+        </tbody>
+    </table>
+
+      <br /><br/><br/>
+      
+
+      <div class="container">
+        <h2 class="section-title" id="cashflow">Cash Flow / Cash On Cash</h2>
+
+        <!--Rental Property Calculator-->
+        <div class="rental-property-container">
+          <div class="operating-statement-container">
+            <div class="card-input">
+              <div class="card-input-operating-statement">
+                <h3>Operating Statement</h3>
+                
+                <div class="input-flex-wrap">
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="montly-rent">Monthly Rent</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="monthly-rent" id="monthly-rent" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="other-income">Other Income</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="other-income" id="other-income" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="vacancy-rate">Vacancy Rate</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="vacancy-rate" id="vacancy-rate" class="float-field validate-percent percent" placeholder="0.0" min="0.00" step="0.01">
+                      <span class="percent-sign">%</span>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="row">
+                  <h4>Effective Gross Income</h4>
+                  <h4 id="effective-gross-income">$0</h4>
+                </div>
+    
+                <h3>Operating Expenses</h3>
+    
+                <div class="input-flex-wrap">
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="property-taxes">Property Taxes</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="property-taxes" id="property-taxes" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="insurance">Insurance</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="insurance" id="insurance" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="maintenance">Maintenance</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="maintenance" id="maintenance" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="management-fee">Management Fee</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="management-fee" id="management-fee" class="float-field validate-percent percent" placeholder="0.00" min="0.00" step="0.01">
+                      <span class="percent-sign">%</span>
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="hoa-fee">HOA Fee</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="hoa-fee" id="hoa-fee" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="other-expenses">Other Expenses</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="other-expenses" id="other-expenses" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="row">
+                  <h4>Total Expenses</h4>
+                  <h4 id="total-expenses">$0</h4>
+                </div>
+              </div>
+            </div>
+    
+            
+    
+          <div class="investment-financing-data-container">
+            <div class="card-input">
+              <div class="card-input-investment">
+                <h3>Investment Data</h3>
+    
+                <div class="input-flex-wrap">
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="purchase-price">Purchase Price</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="purchase-price" id="purchase-price" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="closing-cost">Closing Cost</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="closing-cost" id="closing-cost" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="renovation-cost">Renovation Costs</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="renovation-cost" id="renovation-cost" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+                </div>
+    
+                <h3>Financing Data</h3>
+    
+                <div class="input-flex-wrap">
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="loan-interest-rate">Loan Interest Rate</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="loan-interest-rate" id="loan-interest-rate" class="float-field validate-percent percent" placeholder="0.00" min="0.00" step="0.01">
+                      <span class="percent-sign">%</span>
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="loan-amortization">Loan Amortization</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="loan-amortization" id="loan-amortization" class="percent" placeholder="0" min="0" step="1">
+                      <span class="percent-sign">yr</span>
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="down-payment">Down Payment</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <span class="dollar-sign">$</span>
+                      <input type="text" name="down-payment" id="down-payment" class="validate-amount dollar" placeholder="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+            <div class="card-result">
+              <h3 class="head">Calculated Results</h3>
+    
+              <div class="card-result-inner">
+                <div class="row">
+                  <h4>Potential Rental Income</h4>
+                  <h4 id="resultant-monthly-rent">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Other Income</h4>
+                  <h4 id="resultant-other-income">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Vacancy</h4>
+                  <h4 id="resultant-vacancy-rate">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4 style="font-weight: 700; color: #1E73BE;">Effective Gross Income</h4>
+                  <h4 id="resultant-effective-gross-income" style="font-weight: 700; color: #1E73BE;">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Property Taxes</h4>
+                  <h4 id="resultant-property-taxes">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Insurance</h4>
+                  <h4 id="resultant-insurance">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Maintenance</h4>
+                  <h4 id="resultant-maintenance">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Management Fee</h4>
+                  <h4 id="resultant-management-fee">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>HOA Fee</h4>
+                  <h4 id="resultant-hoa-fee">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Other Expenses</h4>
+                  <h4 id="resultant-other-expenses">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4 style="font-weight: 700; color: #1E73BE;">Total Expenses</h4>
+                  <h4 id="resultant-total-expenses" style="font-weight: 700; color: #1E73BE;">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4 style="font-weight: 700; color: #1E73BE;">Net Operating Income</h4>
+                  <h4 id="net-operating-income" style="font-weight: 700; color: #1E73BE;">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Debt Service</h4>
+                  <h4 id="debt-service">$0</h4>
+                </div>
+              </div>
+              
+              <div style="background-color: #e1fae4;" class="cap-rate">
+                <h3>Cash Flow Before Tax</h3>
+                <h3 id="cash-flow-before-tax">$0</h3>
+              </div>
+    
+              <h3 class="head">Calculated Result</h3>
+    
+              <div class="card-result-inner">
+                <div class="row">
+                  <h4>Purchase Price</h4>
+                  <h4 id="resultant-purchase-price">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Closing Cost</h4>
+                  <h4 id="resultant-closing-cost">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Renovation Cost</h4>
+                  <h4 id="resultant-renovation-cost">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Down Payment</h4>
+                  <h4 id="resultant-down-payment">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Initial Equity</h4>
+                  <h4 id="initial-equity">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Loan Amount</h4>
+                  <h4 id="loan-amount">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Going-in Cap Rate</h4>
+                  <h4 id="going-in-cap-rate">0.0%</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Unlevered Yield on Cost</h4>
+                  <h4 id="unlevered-yield-on-cost">0.0%</h4>
+                </div>
+              </div>
+    
+              <div class="cap-rate">
+                <h3>Cash on Cash Return</h3>
+                <h3 id="cash-on-cash-return">0.0%</h3>
+              </div>
+            </div>
+          </div>
+    
+          <!--Share Result-->
+          <div class="share-result-container">
+            <button id="share-result">Share Result</button>
+    
+            <div class="link-container">
+              <input type="text" id="share-link" />
+              
+              <span id="copy-text">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clipboard" class="svg-inline--fa fa-clipboard fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M384 112v352c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h80c0-35.29 28.71-64 64-64s64 28.71 64 64h80c26.51 0 48 21.49 48 48zM192 40c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24m96 114v-20a6 6 0 0 0-6-6H102a6 6 0 0 0-6 6v20a6 6 0 0 0 6 6h180a6 6 0 0 0 6-6z"></path></svg>
+                <div class="tooltip">Copy to clipboard</div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <br/><br/>
+
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section-main">
+        <div class="footer__container container-main grid-main">
+            <div>
+                <a href="#" class="footer__logo">
+                    <img src="../assets/img/logo.png" alt="" class="footer__logo-img"> 
+                    Calculo
+                </a>
+
+                
+            </div>
+
+            <div>
+                <h3 class="footer__title">Our Sections</h3>
+
+                <ul class="footer__links">
+                  <li>
+                    <a href="./index.html" class="footer__link">Home Page</a>
+                </li>
+                    <li>
+                        <a href="../index.html#donate" class="footer__link">Donate</a>
+                    </li>
+                    <li>
+                        <a href="../index.html#new" class="footer__link">Calculators</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">Support</h3>
+
+                <ul class="footer__links">
+                    
+                    <li>
+                        <a href="../index.html#info" class="footer__link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="footer__title">Follow Us</h3>
+
+              
+                  <div class="social-icons">
+                    <a href="https://github.com/danieleyny">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/danieleyny/?hl=en">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/daniel-eyny/">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+            <img src="../assets/img/footerimg2clear.gif" alt="" class="footer__img1">
+
+        </div>
+
+        <span class="footer__copy">&#169; Eyny. All rights reserved</span>
+    </footer>
+
+
+     <!--=============== SCROLL UP ===============-->
+     <a href="#" class="scrollup" id="scroll-up"> 
+        <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
+    </a>    
+       
+
+        <!--===== MAIN JS =====-->
+        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/app.js"></script>
+        <script type="module" src="../assets/js/RealEstate/income.js"></script>
+    </body>
+</html>
