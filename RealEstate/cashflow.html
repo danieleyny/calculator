@@ -64,9 +64,9 @@ window.addEventListener('scroll', scrollUp)
               <ul class="nav-links">
                   <li><a href="../index.html">Home</a></li>
                   <li><a href="../realestate.html">Real Estate</a></li>
-                  <li><a href="#">Savings</a></li>
-                  <li><a href="#">Stock Analysis</a></li>
-                  <li><a href="#">Investment</a></li>
+                  <li><a href="../savings.html">Savings</a></li>
+                  <li><a href="../stocks.html">Stock Analysis</a></li>
+                  <li><a href="../comingsoon.html">Investment</a></li>
                   <li><a class="nav__contact" href="../index.html#contact">Contact</a></li>
                   <li><a href="#"></a></li>
   
@@ -107,46 +107,68 @@ window.addEventListener('scroll', scrollUp)
         </tbody>
     </table>
 
-      <br /><br/><br/>
+      <br /><br/><br/><br/><br/>
       
 
-      <div class="container">
-        <h2 class="section-title" id="cashflow">Cash Flow / Cash On Cash</h2>
 
-        <!--Rental Property Calculator-->
-        <div class="rental-property-container">
+
+
+
+
+      <div id="cashflow" class="container">
+        <!--Multifamily Proforma Calculator-->
+        <div class="multifamily-proforma-container">
+          <!--Building Data Section-->
+          <div class="building-data-container">
+            <div class="card-input">
+              <h3>Building Data</h3>
+              <div class="building-data-inputs-container"></div>
+              <button id="add-new-row" class="add-row">Add New Row</button>
+            </div>
+    
+            <div class="card-result">
+              <h3 class="card-result-head">Unit Mix</h3>
+    
+              <div class="resultant-building-data">
+                <div class="resultant-building-data-head">
+                  <h4>Unit Type</h4>
+                  <h4>Number of units</h4>
+                  <h4>Average Rent per Month</h4>
+                  <h4>Total Annual Rent</h4>
+                </div>
+                <div class="resultant-building-data-container"></div>
+                <div class="resultant-building-data-total">
+                  <h4>Total</h4>
+                  <h4 class="total" id="total-units">0</h4>
+                  <h4 class="total" id="total-rent">$0</h4>
+                  <h4 class="total" id="total-annual-rent">$0</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Operating Statement-->
           <div class="operating-statement-container">
             <div class="card-input">
-              <div class="card-input-operating-statement">
-                <h3>Operating Statement</h3>
-                
+              <div class="card-input-gross-income">
+                <h3>First Year Operating Statement</h3>
+    
                 <div class="input-flex-wrap">
                   <div class="input-container">
                     <div class="input-label">
-                      <label for="montly-rent">Monthly Rent</label>
+                      <label for="other-income">Other Income</label>
                     </div>
                     <div class="input-wrapper">
                       <span class="dollar-sign">$</span>
-                      <input type="text" name="monthly-rent" id="monthly-rent" class="validate-amount dollar" placeholder="0" step="1">
+                      <input type="text" id="other-income" class="validate-amount dollar" placeholder="0" step="1">
                     </div>
                   </div>
-    
+      
                   <div class="input-container">
                     <div class="input-label">
-                      <label for="other-income">Other Monthly Income</label>
+                      <label for="vacany-credit-loss">Vacancy & Credit Loss</label>
                     </div>
                     <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="other-income" id="other-income" class="validate-amount dollar" placeholder="0" step="1">
-                    </div>
-                  </div>
-    
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="vacancy-rate">Vacancy Rate</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <input type="number" name="vacancy-rate" id="vacancy-rate" class="float-field validate-percent percent" placeholder="0.0" min="0.00" step="0.01">
+                      <input type="number" name="vacany-credit-loss" id="vacany-credit-loss" class="float-field validate-percent percent" placeholder="0.0" min="0.00" step="0.01">
                       <span class="percent-sign">%</span>
                     </div>
                   </div>
@@ -156,7 +178,9 @@ window.addEventListener('scroll', scrollUp)
                   <h4>Effective Gross Income</h4>
                   <h4 id="effective-gross-income">$0</h4>
                 </div>
+              </div>
     
+              <div class="card-input-operating-expanses">
                 <h3>Operating Expenses</h3>
     
                 <div class="input-flex-wrap">
@@ -166,7 +190,7 @@ window.addEventListener('scroll', scrollUp)
                     </div>
                     <div class="input-wrapper">
                       <span class="dollar-sign">$</span>
-                      <input type="text" name="property-taxes" id="property-taxes" class="expenses validate-amount dollar" placeholder="0" step="1">
+                      <input type="text" name="property-taxes" id="property-taxes" class="expenses validate-amount dollar" placeholder="0" min="0" step="1">
                     </div>
                   </div>
     
@@ -176,7 +200,7 @@ window.addEventListener('scroll', scrollUp)
                     </div>
                     <div class="input-wrapper">
                       <span class="dollar-sign">$</span>
-                      <input type="text" name="insurance" id="insurance" class="expenses validate-amount dollar" placeholder="0" step="1">
+                      <input type="text" name="insurance" id="insurance" class="expenses validate-amount dollar" placeholder="0" min="0" step="1">
                     </div>
                   </div>
     
@@ -186,7 +210,7 @@ window.addEventListener('scroll', scrollUp)
                     </div>
                     <div class="input-wrapper">
                       <span class="dollar-sign">$</span>
-                      <input type="text" name="maintenance" id="maintenance" class="expenses validate-amount dollar" placeholder="0" step="1">
+                      <input type="text" name="maintenance" id="maintenance" id="maintenance" class="expenses validate-amount dollar" placeholder="0" min="0" step="1">
                     </div>
                   </div>
     
@@ -200,23 +224,43 @@ window.addEventListener('scroll', scrollUp)
                     </div>
                   </div>
     
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="hoa-fee">HOA Fee</label>
+                  <div class="input-and-toggle-container">
+                    <div class="input-container">
+                      <div class="input-label">
+                        <label for="other-expenses">Other Expenses</label>
+                      </div>
+                      <div class="input-wrapper">
+                        <span class="dollar-sign">$</span>
+                        <input type="text" name="other-expenses" id="other-expenses" class="validate-amount dollar" placeholder="0" min="0" step="1">
+                      </div>
                     </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="hoa-fee" id="hoa-fee" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    <div class="toggle-container">
+                      <label for="other-expenses-toggle">Total Amount</label>
+                      <label class="switch">
+                        <input type="checkbox" name="other-expenses-toggle" id="other-expenses-toggle" value="AmountPerUnit" checked>
+                        <span class="slider round"></span>
+                      </label>
+                      <label for="AmountPerUnit">Amount Per Unit</label>
                     </div>
                   </div>
     
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="other-expenses">Other Expenses</label>
+                  <div class="input-and-toggle-container">
+                    <div class="input-container">
+                      <div class="input-label">
+                        <label for="capex-reserves">CapEx Reserves</label>
+                      </div>
+                      <div class="input-wrapper">
+                        <span class="dollar-sign">$</span>
+                        <input type="text" name="capex-reserves" id="capex-reserves" class="validate-amount dollar" placeholder="0" min="0" step="1">
+                      </div>
                     </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="other-expenses" id="other-expenses" class="expenses validate-amount dollar" placeholder="0" step="1">
+                    <div class="toggle-container">
+                      <label for="capex-reserves-toggle">Total Amount</label>
+                      <label class="switch">
+                        <input type="checkbox" name="capex-reserves-toggle" id="capex-reserves-toggle" value="AmountPerUnit" checked>
+                        <span class="slider round"></span>
+                      </label>
+                      <label for="AmountPerUnit">Amount Per Unit</label>
                     </div>
                   </div>
                 </div>
@@ -228,101 +272,28 @@ window.addEventListener('scroll', scrollUp)
               </div>
             </div>
     
-            
-    
-          <div class="investment-financing-data-container">
-            <div class="card-input">
-              <div class="card-input-investment">
-                <h3>Investment Data</h3>
-    
-                <div class="input-flex-wrap">
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="purchase-price">Purchase Price</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="purchase-price" id="purchase-price" class="validate-amount dollar" placeholder="0" step="1">
-                    </div>
-                  </div>
-    
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="closing-cost">Closing Cost</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="closing-cost" id="closing-cost" class="validate-amount dollar" placeholder="0" step="1">
-                    </div>
-                  </div>
-    
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="renovation-cost">Renovation Costs</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="renovation-cost" id="renovation-cost" class="validate-amount dollar" placeholder="0" step="1">
-                    </div>
-                  </div>
-                </div>
-    
-                <h3>Financing Data</h3>
-    
-                <div class="input-flex-wrap">
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="loan-interest-rate">Loan Interest Rate</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <input type="number" name="loan-interest-rate" id="loan-interest-rate" class="float-field validate-percent percent" placeholder="0.00" min="0.00" step="0.01">
-                      <span class="percent-sign">%</span>
-                    </div>
-                  </div>
-    
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="loan-amortization">Loan Amortization</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <input type="number" name="loan-amortization" id="loan-amortization" class="percent" placeholder="0" min="0" step="1">
-                      <span class="percent-sign">yr</span>
-                    </div>
-                  </div>
-    
-                  <div class="input-container">
-                    <div class="input-label">
-                      <label for="down-payment">Down Payment</label>
-                    </div>
-                    <div class="input-wrapper">
-                      <span class="dollar-sign">$</span>
-                      <input type="text" name="down-payment" id="down-payment" class="validate-amount dollar" placeholder="0" step="1">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
             <div class="card-result">
-              <h3 class="head">Calculated Results</h3>
+              <h3 class="head">Proforma</h3>
     
               <div class="card-result-inner">
                 <div class="row">
                   <h4>Potential Rental Income</h4>
-                  <h4 id="resultant-monthly-rent">$0</h4>
+                  <h4 id="resultant-potential-income">$0</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Other Income</h4>
-                  <h4 id="resultant-other-income">$0</h4>
+                  <h4>Total Other Income</h4>
+                  <h4 id="total-other-income">$0</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Vacancy</h4>
-                  <h4 id="resultant-vacancy-rate">$0</h4>
+                  <h4 style="font-weight: 700; color: #1E73BE;">Potential Gross Income</h4>
+                  <h4 id="resultant-potential-gross-income" style="font-weight: 700; color: #1E73BE;">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Vacancy & Credit Loss</h4>
+                  <h4 id="resultant-vacancy-credit-loss">$0</h4>
                 </div>
     
                 <div class="row">
@@ -351,13 +322,13 @@ window.addEventListener('scroll', scrollUp)
                 </div>
     
                 <div class="row">
-                  <h4>HOA Fee</h4>
-                  <h4 id="resultant-hoa-fee">$0</h4>
+                  <h4>Other Expenses</h4>
+                  <h4 id="resultant-other-expenses">$0</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Other Expenses</h4>
-                  <h4 id="resultant-other-expenses">$0</h4>
+                  <h4>CapEx Reserves</h4>
+                  <h4 id="resultant-capex-reserves">$0</h4>
                 </div>
     
                 <div class="row">
@@ -376,12 +347,88 @@ window.addEventListener('scroll', scrollUp)
                 </div>
               </div>
               
-              <div style="background-color: #e1fae4;" class="cap-rate">
+              <div class="cap-rate">
                 <h3>Cash Flow Before Tax</h3>
                 <h3 id="cash-flow-before-tax">$0</h3>
+              </div> 
+            </div>
+          </div>
+           <!--Investment & Financing Data-->
+           <div class="investment-financing-data-container">
+            <div class="card-input">
+              <div class="card-input-investment">
+                <h3>Investment Data</h3>
+                
+                <div class="input-container">
+                  <div class="input-label">
+                    <label for="purchase-price">Purchase Price</label>
+                  </div>
+                  <div class="input-wrapper">
+                    <span class="dollar-sign">$</span>
+                    <input type="text" name="purchase-price" id="purchase-price" class="validate-amount dollar" placeholder="0" step="1">
+                  </div>
+                </div>
               </div>
     
-              <h3 class="head">Calculated Result</h3>
+              <div class="card-input-financing">
+                <h3>Financing Data</h3>
+    
+                <div class="input-flex-wrap">
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="loan-interest-rate">Loan Interest Rate</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="loan-interest-rate" id="loan-interest-rate" class="validate-percent percent float-field" placeholder="0.00" step="0.01">
+                      <span class="percent-sign">%</span>
+                    </div>
+                  </div>
+    
+                  <div class="loan-amortization-container">
+                    <div class="input-container">
+                      <div class="input-label">
+                        <label for="loan-amortization">Loan Amortization</label>
+                      </div>
+                      <div class="input-wrapper">
+                        <input type="number" name="loan-amortization" id="loan-amortization" placeholder="0" step="1">
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-container">
+                      <label for="Annual">Yearly</label>
+                      <label class="switch">
+                        <input type="checkbox" id="loan-term-period" value="Monthly" checked>
+                        <span class="slider round"></span>
+                      </label>
+                      <label for="Monthly">Monthly</label>
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="ltv">Loan To Value (LTV)</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="ltv" id="ltv" class="validate-percent percent float-field" placeholder="0.00" step="0.01">
+                      <span class="percent-sign">%</span>
+                    </div>
+                  </div>
+    
+                  <div class="input-container">
+                    <div class="input-label">
+                      <label for="dscr">Debt service coverage ratio (DSCR)</label>
+                    </div>
+                    <div class="input-wrapper">
+                      <input type="number" name="dscr" id="dscr" class="float-field percent" placeholder="0.00" step="0.01">
+                      <span class="percent-sign">x</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="card-result">
+              <h3 class="head">Metrics</h3>
     
               <div class="card-result-inner">
                 <div class="row">
@@ -390,18 +437,43 @@ window.addEventListener('scroll', scrollUp)
                 </div>
     
                 <div class="row">
-                  <h4>Closing Cost</h4>
-                  <h4 id="resultant-closing-cost">$0</h4>
+                  <h4>Per Unit</h4>
+                  <h4 id="resultant-per-unit">$0</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Renovation Cost</h4>
-                  <h4 id="resultant-renovation-cost">$0</h4>
+                  <h4>Loan Interest Rate</h4>
+                  <h4 id="resultant-loan-interest-rate">0.0%</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Down Payment</h4>
-                  <h4 id="resultant-down-payment">$0</h4>
+                  <h4>Loan Amortization</h4>
+                  <h4 id="resultant-loan-amortization">0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>LTV</h4>
+                  <h4 id="resultant-ltv">0.0%</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>DSCR</h4>
+                  <h4 id="resultant-dscr">0x</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Loan Amount (LTV)</h4>
+                  <h4 id="loan-amount-ltv">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4>Loan Amount (DSCR)</h4>
+                  <h4 id="loan-amount-dscr">$0</h4>
+                </div>
+    
+                <div class="row">
+                  <h4 style="font-weight: 700; color: #1E73BE;">Maximum Loan Amount</h4>
+                  <h4 id="maximum-loan-amount" style="font-weight: 700; color: #1E73BE;">$0</h4>
                 </div>
     
                 <div class="row">
@@ -410,28 +482,22 @@ window.addEventListener('scroll', scrollUp)
                 </div>
     
                 <div class="row">
-                  <h4>Loan Amount</h4>
-                  <h4 id="loan-amount">$0</h4>
+                  <h4>Monthly Debt Service</h4>
+                  <h4 id="monthly-debt-service">$0</h4>
                 </div>
     
                 <div class="row">
-                  <h4>Going-in Cap Rate</h4>
-                  <h4 id="going-in-cap-rate">0.0%</h4>
-                </div>
-    
-                <div class="row">
-                  <h4>Unlevered Yield on Cost</h4>
-                  <h4 id="unlevered-yield-on-cost">0.0%</h4>
+                  <h4>Annual Debt Service</h4>
+                  <h4 id="annual-debt-service">$0</h4>
                 </div>
               </div>
     
               <div class="cap-rate">
                 <h3>Cash on Cash Return</h3>
-                <h3 id="cash-on-cash-return">0.0%</h3>
+                <h3 id="cash-on-cash-return">0.0</h3>
               </div>
             </div>
           </div>
-    
           <!--Share Result-->
           <div class="share-result-container">
             <button id="share-result">Share Result</button>
@@ -447,6 +513,12 @@ window.addEventListener('scroll', scrollUp)
           </div>
         </div>
       </div>
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,930 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, button, input, select, textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+body {
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+.container {
+  min-height: 90vh;
+  padding: 75px 20px 180px;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+}
+
+.rental-property-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+}
+
+.rental-property-container h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.rental-property-container h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.rental-property-container label, .rental-property-container p, .rental-property-container span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #444444;
+}
+
+.rental-property-container h3, .rental-property-container h4, .rental-property-container h5, .rental-property-container h6 {
+  margin-bottom: 0;
+}
+
+.rental-property-container .share-result-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .share-result-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.rental-property-container .share-result-container button {
+  width: 11rem;
+  height: 4rem;
+  padding: 1.5rem 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: 'Assistant', sans-serif;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #38486d;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.rental-property-container .share-result-container button:hover {
+  background-color: #566fa7;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .share-result-container button {
+    width: 100%;
+  }
+}
+
+.rental-property-container .share-result-container .link-container {
+  width: calc(100% - 11rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .share-result-container .link-container {
+    width: 100%;
+  }
+}
+
+.rental-property-container .share-result-container .link-container input {
+  width: 0%;
+  padding: 0;
+  height: 3.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: #1E73BE;
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 165, 254, 0.25);
+          box-shadow: 1px 2px 4px 1px rgba(0, 165, 254, 0.25);
+  font-size: 1.5rem;
+  -webkit-transition: all 1s ease-in;
+  transition: all 1s ease-in;
+}
+
+.rental-property-container .share-result-container .link-container input:focus {
+  outline: 1px solid rgba(0, 165, 254, 0.25);
+}
+
+.rental-property-container .share-result-container .link-container span {
+  opacity: 0;
+  height: 3.5rem;
+  aspect-ratio: 1;
+  color: rgb(45, 134, 178);
+  padding: 0.75rem 1rem;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 165, 254, 0.25);
+          box-shadow: 1px 1px 8px 1px rgba(0, 165, 254, 0.25);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.rental-property-container .share-result-container .link-container span .tooltip {
+  visibility: hidden;
+  width: 140px;
+  background-color: rgb(45, 134, 178);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.rental-property-container .share-result-container .link-container span .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(45, 134, 178) transparent transparent transparent;
+}
+
+.rental-property-container .share-result-container .link-container span:hover {
+  background-color: rgb(45, 134, 178);
+  color: rgba(255, 255, 255, 0.901);
+}
+
+.rental-property-container .share-result-container .link-container span:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.rental-property-container .operating-statement-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .operating-statement-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 1rem;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container {
+  position: relative;
+  /* Hide Arrows/Spinners */
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-input .input-container {
+    width: 100%;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .required {
+  position: relative;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .required::after {
+  content: '*';
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  color: tomato;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container input {
+  min-width: 20rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #afafaf;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.3;
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 18rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 24rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 80%;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container input:focus, .rental-property-container .operating-statement-container .card-input .input-container input:hover {
+  border-color: #1E73BE;
+  -webkit-box-shadow: 0px 1px 4px 1px #cbe2f7;
+          box-shadow: 0px 1px 4px 1px #cbe2f7;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container input::-webkit-outer-spin-button,
+.rental-property-container .operating-statement-container .card-input .input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .dollar-sign, .rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .percent-sign, .rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .months {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #1E73BE;
+  text-align: center;
+  background-color: #f6f6f6;
+  border: 1px solid #afafaf;
+  width: 10px;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .months {
+  width: 62px;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .dollar-sign, .rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .percent {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .percent-sign, .rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .dollar, .rental-property-container .operating-statement-container .card-input .input-container .input-wrapper .months {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .error-label {
+  color: tomato;
+  font-size: 0.75rem;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container .warning-message {
+  color: orange;
+  font-size: 0.75rem;
+}
+
+.rental-property-container .operating-statement-container .card-input .input-container input {
+  min-width: 18rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 24rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 95%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .rental-property-container .operating-statement-container .card-input .input-container input {
+    min-width: 88%;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #e7e7e7;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-input .row h4 {
+    font-size: 0.8rem;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input-operating-statement, .rental-property-container .operating-statement-container .card-input-operating-expenses {
+  max-width: 48rem;
+  width: 100%;
+  min-height: 15rem;
+  padding: 0.75rem 1rem;
+  border-style: solid;
+  border-width: 4px 0;
+  border-color: #bcbcbc;
+  border-top-right-radius: 0.75rem;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-input-operating-statement, .rental-property-container .operating-statement-container .card-input-operating-expenses {
+    border-top-left-radius: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .operating-statement-container .card-input-operating-statement, .rental-property-container .operating-statement-container .card-input-operating-expenses {
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .operating-statement-container .card-input-operating-statement, .rental-property-container .operating-statement-container .card-input-operating-expenses {
+    max-width: 100%;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-input-operating-statement .input-flex-wrap, .rental-property-container .operating-statement-container .card-input-operating-expenses .input-flex-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rental-property-container .operating-statement-container .card-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  max-width: 24rem;
+  width: 100%;
+  border-style: solid;
+  border-width: 4px 0;
+  border-color: #73b1e9;
+  border-top-right-radius: 0.75rem;
+  background-color: #f9f9f9;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .operating-statement-container .card-result {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-result {
+    border-top-left-radius: 0.75rem;
+  }
+}
+
+.rental-property-container .operating-statement-container .card-result .head {
+  padding: 1rem 0 0 1rem;
+}
+
+.rental-property-container .operating-statement-container .card-result-inner {
+  height: 100%;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.rental-property-container .operating-statement-container .card-result-inner .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.rental-property-container .operating-statement-container .card-result .cap-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 1.5rem;
+  background-color: #e1eefa;
+}
+
+.rental-property-container .operating-statement-container .card-result .cap-rate h3 {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .operating-statement-container .card-result .cap-rate h3 {
+    font-size: 1.125rem;
+  }
+}
+
+.rental-property-container .investment-financing-data-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .investment-financing-data-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 1rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container {
+  position: relative;
+  /* Hide Arrows/Spinners */
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container {
+    width: 100%;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .required {
+  position: relative;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .required::after {
+  content: '*';
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  color: tomato;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container input {
+  min-width: 20rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #afafaf;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.3;
+  background-color: #ffffff;
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 18rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 24rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 80%;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container input:focus, .rental-property-container .investment-financing-data-container .card-input .input-container input:hover {
+  border-color: #1E73BE;
+  -webkit-box-shadow: 0px 1px 4px 1px #cbe2f7;
+          box-shadow: 0px 1px 4px 1px #cbe2f7;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container input::-webkit-outer-spin-button,
+.rental-property-container .investment-financing-data-container .card-input .input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .dollar-sign, .rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .percent-sign, .rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .months {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #1E73BE;
+  text-align: center;
+  background-color: #f6f6f6;
+  border: 1px solid #afafaf;
+  width: 10px;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .months {
+  width: 62px;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .dollar-sign, .rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .percent {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .percent-sign, .rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .dollar, .rental-property-container .investment-financing-data-container .card-input .input-container .input-wrapper .months {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .error-label {
+  color: tomato;
+  font-size: 0.75rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container .warning-message {
+  color: orange;
+  font-size: 0.75rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-input .input-container input {
+  min-width: 18rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 24rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 95%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .rental-property-container .investment-financing-data-container .card-input .input-container input {
+    min-width: 88%;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #e7e7e7;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-input .row h4 {
+    font-size: 0.8rem;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input-investment, .rental-property-container .investment-financing-data-container .card-input-financing {
+  max-width: 48rem;
+  width: 100%;
+  min-height: 12rem;
+  padding: 0.75rem 1rem;
+  border-style: solid;
+  border-width: 4px 0;
+  border-color: #bcbcbc;
+  border-top-right-radius: 0.75rem;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-input-investment, .rental-property-container .investment-financing-data-container .card-input-financing {
+    border-top-left-radius: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .rental-property-container .investment-financing-data-container .card-input-investment, .rental-property-container .investment-financing-data-container .card-input-financing {
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .investment-financing-data-container .card-input-investment, .rental-property-container .investment-financing-data-container .card-input-financing {
+    max-width: 100%;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-input-investment .input-flex-wrap, .rental-property-container .investment-financing-data-container .card-input-financing .input-flex-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-input-investment input {
+  width: calc(100% - 2rem);
+}
+
+.rental-property-container .investment-financing-data-container .card-input-financing {
+  min-height: 18rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  max-width: 24rem;
+  width: 100%;
+  border-style: solid;
+  border-width: 4px 0;
+  border-color: #73b1e9;
+  border-top-right-radius: 0.75rem;
+  background-color: #f9f9f9;
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1024px) {
+  .rental-property-container .investment-financing-data-container .card-result {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-result {
+    border-top-left-radius: 0.75rem;
+  }
+}
+
+.rental-property-container .investment-financing-data-container .card-result .head {
+  padding: 1rem 0 0 1rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-result-inner {
+  height: 100%;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.rental-property-container .investment-financing-data-container .card-result-inner .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.rental-property-container .investment-financing-data-container .card-result .cap-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 1.5rem;
+  background-color: #e1fae6;
+}
+
+.rental-property-container .investment-financing-data-container .card-result .cap-rate h3 {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .rental-property-container .investment-financing-data-container .card-result .cap-rate h3 {
+    font-size: 1.125rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
