@@ -117,7 +117,7 @@ const calculateTotalExpenses = () => {
 */
 const calculateEffectiveGrossIncome = () => { 
   const monthlyRentValue = parseInt(monthlyRent.rawValue) * 12 || 0;
-  const otherIncomeValue = parseInt(otherIncome.rawValue) || 0;
+  const otherIncomeValue = parseInt(otherIncome.rawValue) * 12 || 0;
   const vacancyRateValue = parseFloat(vacanyRate.value) || 0;
   const vacancyRateValueInDollars = (monthlyRentValue + otherIncomeValue) * vacancyRateValue / 100;
 

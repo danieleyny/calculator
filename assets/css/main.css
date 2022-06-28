@@ -835,7 +835,16 @@ textarea.input {
   }
 }
 
-
+.nav__contact {
+  border: .1px solid white;
+  padding: 7px 15px;
+  border-radius: 25px;
+}
+.nav__contact:hover {
+  background-color: white;
+  transition: .6s;
+  color: #38486d;
+}
 
 /* End contact section */
 

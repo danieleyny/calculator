@@ -99,7 +99,7 @@ h3, h4, h5, h6 {
   font-family: 'Assistant', sans-serif;
   border: none;
   border-radius: 0.5rem;
-  background-color: #fe9000;
+  background-color: #38486d;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,7 +114,7 @@ h3, h4, h5, h6 {
 }
 
 .rental-property-container .share-result-container button:hover {
-  background-color: #e58200;
+  background-color: #566fa7;
 }
 
 @media screen and (max-width: 768px) {
@@ -162,7 +162,7 @@ h3, h4, h5, h6 {
   opacity: 0;
   height: 3.5rem;
   aspect-ratio: 1;
-  color: orange;
+  color: rgb(45, 134, 178);
   padding: 0.75rem 1rem;
   -webkit-box-shadow: 1px 1px 8px 1px rgba(254, 144, 0, 0.25);
           box-shadow: 1px 1px 8px 1px rgba(254, 144, 0, 0.25);
@@ -174,7 +174,7 @@ h3, h4, h5, h6 {
 .rental-property-container .share-result-container .link-container span .tooltip {
   visibility: hidden;
   width: 140px;
-  background-color: rgba(254, 144, 0, 0.75);
+  background-color: rgb(45, 134, 178);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -197,12 +197,12 @@ h3, h4, h5, h6 {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(254, 144, 0, 0.75) transparent transparent transparent;
+  border-color: rgb(45, 134, 178) transparent transparent transparent;
 }
 
 .rental-property-container .share-result-container .link-container span:hover {
-  background-color: rgba(254, 144, 0, 0.5);
-  color: rgba(255, 255, 255, 0.75);
+  background-color: rgb(45, 134, 178);
+  color: rgba(255, 255, 255, 0.901);
 }
 
 .rental-property-container .share-result-container .link-container span:hover .tooltip {
