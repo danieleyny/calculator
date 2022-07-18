@@ -53,6 +53,13 @@ window.addEventListener('scroll', scrollUp)
 		</script>
     </head>
     <body>
+
+
+      <div id="pageloader"></div>
+
+
+
+
         <!--===== HEADER =====-->
         <header class="l-header">
           <nav>
@@ -539,6 +546,15 @@ window.addEventListener('scroll', scrollUp)
         <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
     </a>    
        
+    <script>
+      var loader = document.getElementById("pageloader");
+    
+      window.addEventListener("load", function(){
+        loader.style.display = "none";
+      })
+    </script>
+
+
 
         <!--===== MAIN JS =====-->
         <script src="../assets/js/main.js"></script>

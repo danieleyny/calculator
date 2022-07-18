@@ -23,6 +23,18 @@ img {
 }
 
 
+
+/* Page Loader */
+#pageloader {
+	background: #1272e9 url(../img/pageloader.gif) no-repeat center center;
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	z-index: 10000;
+	background-size: 20%;
+	
+  }
+
 /*=============== SCROLL UP ===============*/
 .scrollup {
 	position: fixed;

@@ -27,7 +27,8 @@
     </head>
     <body>
 
- 
+      <div id="pageloader"></div>
+
 
         <!--===== HEADER =====-->
         <header class="l-header">
@@ -339,7 +340,13 @@
 
 
 
-        
+     <script>
+      var loader = document.getElementById("pageloader");
+    
+      window.addEventListener("load", function(){
+        loader.style.display = "none";
+      })
+    </script>
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>

@@ -27,7 +27,8 @@
     </head>
     <body>
 
- 
+      <div id="pageloader"></div>
+
 
         <!--===== HEADER =====-->
         <header class="l-header">
@@ -41,7 +42,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="realestate.html">Real Estate</a></li>
                 <li><a href="savings.html">Savings</a></li>
-                <li><a href="stocks.html">Stock Analysis</a></li>
+                <li><a href="comingsoon.html">Stock Analysis</a></li>
                 <li><a href="comingsoon.html">Investment</a></li>
                 <li><a class="nav__contact" href="#contact">Contact</a></li>
                 <li><a href="#"></a></li>
@@ -358,7 +359,13 @@
       </footer>
 
 
-        
+      <script>
+        var loader = document.getElementById("pageloader");
+      
+        window.addEventListener("load", function(){
+          loader.style.display = "none";
+        })
+      </script>
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>

@@ -314,6 +314,13 @@ function FormatNumber(nStr) {
 		</script>
     </head>
     <body>
+
+
+
+        <div id="pageloader"></div>
+
+
+
         <!--===== HEADER =====-->
         <header class="l-header">
             <nav>
@@ -930,7 +937,7 @@ function FormatNumber(nStr) {
         <div class="footer__container container-main grid-main">
             <div>
                 <a href="#" class="footer__logo">
-                    <img src="assets/img/logo.png" alt="" class="footer__logo-img"> 
+                    <img src="../assets/img/logo.png" alt="" class="footer__logo-img"> 
                     Calculo
                 </a>
 
@@ -998,18 +1005,28 @@ function FormatNumber(nStr) {
 
 
 
-            <img src="assets/img/footerimg2clear.gif" alt="" class="footer__img1">
+            <img src="../assets/img/footerimg2clear.gif" alt="" class="footer__img1">
 
         </div>
 
         <span class="footer__copy">&#169; Eyny. All rights reserved</span>
     </footer>
 
+
+    
      <!--=============== SCROLL UP ===============-->
      <a href="#" class="scrollup" id="scroll-up"> 
         <i class='bx bx-up-arrow-alt scrollup__icon' ></i>
     </a>    
        
+
+    <script>
+        var loader = document.getElementById("pageloader");
+      
+        window.addEventListener("load", function(){
+          loader.style.display = "none";
+        })
+      </script>
 
         <!--===== MAIN JS =====-->
         <script src="../assets/js/main.js"></script>

@@ -26,6 +26,10 @@
         <title>Calculo</title>
     </head>
     <body>
+
+      <div id="pageloader"></div>
+
+
         <!--===== HEADER =====-->
         <header class="l-header">
         <nav>
@@ -38,7 +42,7 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="realestate.html">Real Estate</a></li>
                 <li><a href="savings.html">Savings</a></li>
-                <li><a href="stocks.html">Stock Analysis</a></li>
+                <li><a href="comingsoon.html">Stock Analysis</a></li>
                 <li><a href="comingsoon.html">Investment</a></li>
                 <li><a class="nav__contact" href="#contact">Contact</a></li>
                 <li><a href="#"></a></li>
@@ -62,9 +66,9 @@
       <img src="./assets/img/calculohomeimg-removebg-preview.png" alt="" class="home__img-main">
 
       <div class="home__data-main">
-          <h1 class="home__title-main">Welcome To, <br> <span class="home-title-span"> Calculo </span></h1>
+          <h1 class="home__title-main">Welcome To <br> <span class="home-title-span"> Calculo </span></h1>
           <p class="home__description-main">
-              The only website you'll need, 
+              The only website you'll need 
               to get all of your buisness calculations done.
           </p>
           <a href="#new" class="button-main">Calculators</a>
@@ -73,7 +77,6 @@
 </section>
 
 
-<br /><br/><br />
 
 
 
@@ -101,7 +104,7 @@
                 <img src="assets/img/stocksimglogo.png" alt="" class="new__img">
                 <br/> <br/>
                 <h3 class="new__price">Stock  <br/> Calculators</h3>
-                <a href="./stocks.html"><button class="button-new">View</button></a>
+                <a href="./comingsoon.html"><button class="button-new">View</button></a>
 
             </article>
 
@@ -110,7 +113,7 @@
 
                   <img src="assets/img/realestateimglogo.png" alt="" class="new__img">
                   <br/> <br/>
-                <h3 class="new__price">Real Estate  <br/> Calculators</h3>2
+                <h3 class="new__price">Real Estate  <br/> Calculators</h3>
                 <a href="./realestate.html"><button class="button-new">View</button></a>
 
               </article>
@@ -448,6 +451,15 @@
 
 
         
+
+    
+<script>
+  var loader = document.getElementById("pageloader");
+
+  window.addEventListener("load", function(){
+    loader.style.display = "none";
+  })
+</script>
 
         <!--===== MAIN JS =====-->
         <script src="./assets/js/main.js"></script>
